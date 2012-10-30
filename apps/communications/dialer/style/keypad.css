@@ -49,7 +49,6 @@
 #keypad-delete {
   text-align: center;
   width: 4rem;
-  display: none;
 }
 
 #keypad-delete > div {
