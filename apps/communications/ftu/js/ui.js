@@ -300,13 +300,15 @@ var UIManager = {
 
       // ssid
       var ssid = document.createElement('a');
+      var ssidp = document.createElement('p');
 
       // Check if is shown
       if (networksShown.indexOf(network.ssid) == -1) {
         ssid.textContent = network.ssid;
+
         ssid.dataset.ssid = network.ssid;
         // supported authentication methods
-        var small = document.createElement('small');
+        var small = document.createElement('p');
         var keys = network.capabilities;
         if (keys && keys.length) {
           small.textContent = keys.join(', ');
@@ -318,8 +320,11 @@ var UIManager = {
         // create list item
         var li = document.createElement('li');
         li.setAttribute('id', network.ssid);
-        li.appendChild(small);
         li.appendChild(ssid);
+
+        ssid.appendChild(ssidp);
+        ssid.appendChild(small);
+
         networksDOM.appendChild(li);
       }
     }
@@ -330,6 +335,6 @@ var UIManager = {
     }
   },
   updateNetworkStatus: function uim_uns(ssid, status) {
-    document.getElementById(ssid).childNodes[0].innerHTML = status;
+    document.getElementById(ssid).querySelector('p:last-child').innerHTML = status;
   }
 };
