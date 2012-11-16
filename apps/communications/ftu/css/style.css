@@ -223,7 +223,7 @@ html, body {
 /*
   Wifi configuration
 */
-#wifi [data-type="list"] li > a > p {
+#wifi [data-type="list"] li > p {
   pointer-events: none;
 }
 
