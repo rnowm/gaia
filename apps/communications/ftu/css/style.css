@@ -699,3 +699,32 @@ html, body {
   height: 100%;
 }
 
+/*
+
+*/
+
+.wifi-signal0 {
+	background-image: -moz-image-rect(url(images/wifi_sprite.png), 0, 32, 32, 0) !important;
+}
+
+.wifi-signal1 {
+  background-image: -moz-image-rect(url(images/wifi_sprite.png), 0, 64, 32, 32) !important;
+}
+
+.wifi-signal2 {
+  background-image: -moz-image-rect(url(images/wifi_sprite.png), 0, 96, 32, 64) !important;
+}
+
+.wifi-signal3 {
+  background-image: -moz-image-rect(url(images/wifi_sprite.png), 0, 128, 32, 96) !important;
+}
+
+.wifi-signal4 {
+  background-image: -moz-image-rect(url(images/wifi_sprite.png), 0, 160, 32, 128) !important;
+}
+
+.icon {
+	background-color: transparent !important;
+	background-repeat: no-repeat !important; 
+	background-position: center center !important; 
+}

@@ -299,8 +299,14 @@ var UIManager = {
       if (networksShown.indexOf(network.ssid) == -1) {
         // Create dom elements
         var li = document.createElement('li');
+        var icon = document.createElement('aside');
         var ssidp = document.createElement('p');
         var small = document.createElement('p');
+        // Set Icon
+        icon.classList.add('pack-end');
+        icon.classList.add('icon');
+        var level = Math.min(Math.floor(network.relSignalStrength / 20), 4);
+        icon.classList.add('wifi-signal' + level);
         // Set SSID
         ssidp.textContent = network.ssid;
         li.dataset.ssid = network.ssid;
@@ -319,6 +325,7 @@ var UIManager = {
         networksShown.push(network.ssid);
         // Append the elements to li
         li.setAttribute('id', network.ssid);
+        li.appendChild(icon);
         li.appendChild(ssidp);
         li.appendChild(small);
         // Append to DOM
