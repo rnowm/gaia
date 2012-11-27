@@ -528,6 +528,9 @@ var ThreadListUI = {
             'unreadCount': !message.read ? 1 : 0,
             'id': numNormalized
           };
+
+
+          
           if (threadIds.length == 0) {
             dayHeaderIndex = Utils.getDayDate(time);
             ThreadListUI.createNewHeader(time);
