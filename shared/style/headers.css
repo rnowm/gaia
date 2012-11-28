@@ -7,7 +7,7 @@ section[role="region"] > header:first-child {
   padding: 0;
   height: 5rem;
   color: #fff;
-  background: url(headers/images/ui/header.png) repeat-x 0 0;
+  background: url(headers/images/ui/headers.svg) repeat-x 0 0;
   background-size: auto 100%;
   border: none;
 }
