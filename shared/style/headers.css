@@ -7,9 +7,10 @@ section[role="region"] > header:first-child {
   padding: 0;
   height: 5rem;
   color: #fff;
-  background: url(headers/images/ui/headers.svg) repeat-x 0 0;
+  //background: url(headers/images/ui/headers.svg) repeat-x 0 0;
+  background: url(headers/images/ui/header.png) repeat-x 0 0;
+  border: 0;
   background-size: auto 100%;
-  border: none;
 }
 
 section[role="region"] > header:first-child:after {
@@ -25,7 +26,7 @@ section[role="region"] > header:first-child:after {
 }
 
 section[role="region"] > header:first-child h1 {
-  font: 2.2rem/4.8rem "MozTT", Sans-serif;
+  font: 2.2rem/5rem "MozTT", Sans-serif;
   text-align: left;
   color: #fff;
   white-space: nowrap;
@@ -168,11 +169,13 @@ section[role="region"] > header:first-child .icon {
   width: 3rem;
   height: 3rem;
   margin: 0 -1rem;
-  background: transparent no-repeat center center;
+  //background: transparent no-repeat center center;
   font-size: 0;
   overflow: hidden;
   position: relative;
   height: 4.9rem;
+  background: url(../assets/icons.svg) no-repeat;
+  background-size: 3rem 3rem;
 }
 
 section[role="region"] > header:first-child .icon.icon-add {
@@ -180,7 +183,7 @@ section[role="region"] > header:first-child .icon.icon-add {
 }
 
 section[role="region"] > header:first-child .icon.icon-edit {
-  background-image: url(headers/images/icons/edit.png);
+  background-position: -35px -635px;
 }
 
 section[role="region"] > header:first-child .icon.icon-send {
