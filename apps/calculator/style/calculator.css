@@ -5,13 +5,14 @@ body, html {
   overflow: hidden;
   font-family: MozTT, sans-serif; 
   font-weight: normal;
-  font-size: 10px;
+  font-size: 13.5px;
   background: url("images/background.png") no-repeat 0 -20px;
+  background-size: 100% auto;
 }
 
 .row {
-  padding-left: 4px;
-  padding-right: 4px;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
   display: block;
 }
 
@@ -23,14 +24,14 @@ input {
 
   background: transparent;
   background-repeat: no-repeat;
-  background-position: 4px 0;
+  background-position: 0.4rem 0;
 
   color: white;
   font-family: MozTT, sans-serif; 
   font-weight: 500;
   font-size: 2.06rem;
 
-  width: 80px;
+  width: 8rem;
   height: 6rem;
   line-height: 6rem;
 
@@ -39,7 +40,7 @@ input {
   padding-bottom: 1rem;
 
   /* text nodes in the source code affect the layout */
-  margin-right: -5px;
+  margin-right: -0.5rem;
 }
 
 input.small {
@@ -65,30 +66,30 @@ input[disabled] {
 }
 
 input:not(.small) {
-  right: 8px;
-  bottom: 241px;
-  width: 156px;
+  right: 0.8rem;
+  bottom: 24.1rem;
+  width: 15.6rem;
 }
 
 /* Result Display */
 #display {
   color: white;
 
-  margin-left: 8px;
-  margin-top: 8px;
-  margin-bottom: 10px;
+  margin-left: 0.8rem;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
 
-  width: calc(100% - 16px);
-  height: 142px;
-  line-height: 142px;
+  width: calc(100% - 1.6rem);
+  height: 14.2rem;
+  line-height: 14.2rem;
 }
 
 #display b {
   transform-origin: right center;
   position: absolute;
-  right: 16px;
+  right: 1.6rem;
 
-  line-height: 142px;
+  line-height: 1.42rem;
   font-family: MozTT, sans-serif; 
   font-weight: 300;
   font-size: 8.25rem;
