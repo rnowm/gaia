@@ -11,6 +11,7 @@ html {
   padding-left: 5.5rem;
   background-repeat: no-repeat;
   background-position: 1.4rem center;
+  background-size: 3rem;
 }
 
 .menu-item-desc {
@@ -23,7 +24,6 @@ html {
   //background-image: -moz-image-rect(url(images/icons_sprite.svg), 0, 30, 30, 0);
   //background-position: -10px -10px;
 
-  background-size: 3%;
   background-image: url("images/icons_sprite.svg#airplainmode");
   //background-image: url(images/test.svg#defs1309);
   //background-repeat: no-repeat;
