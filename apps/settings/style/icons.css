@@ -3,6 +3,10 @@
  * Setting icons
  */
 
+html {
+  font-size: 15px !important;
+}
+
 .menu-item {
   padding-left: 5.5rem;
   background-repeat: no-repeat;
@@ -14,19 +18,33 @@
 }
 
 #menuItem-airplaneMode {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 0, 30, 30, 0);
+  //background-image: -moz-image-rect(url(images/icons_sprite.png), 0, 30, 30, 0);
+  //background-image: -moz-image-rect(url(images/settings_icons.svg), 0, 30, 30, 0);
+  //background-image: -moz-image-rect(url(images/icons_sprite.svg), 0, 30, 30, 0);
+  //background-position: -10px -10px;
+
+  background-size: 3%;
+  background-image: url("images/icons_sprite.svg#airplainmode");
+  //background-image: url(images/test.svg#defs1309);
+  //background-repeat: no-repeat;
 }
 
 #menuItem-gps {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 0, 60, 30, 30);
+  //background-image: -moz-image-rect(url(images/icons_sprite.png), 0, 60, 30, 30);
+  background-size: 3%;
+  background-image: url("images/icons_sprite.svg#gps");
 }
 
 #menuItem-wifi {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 0, 90, 30, 60);
+  background-image: -moz-image-rect(url(images/icons_sprite.png), 0, 60, 30, 30);
+  //background-image: -moz-image-rect(url(images/icons_sprite.png), 0, 90, 30, 60);
 }
 
 #menuItem-cellularAndData {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 0, 120, 30, 90);
+  background-image: -moz-image-rect(url(images/icons_sprite.png), 0, 60, 30, 30);
+    background-size: 3%;
+
+  //background-image: -moz-image-rect(url(images/icons_sprite.png), 0, 120, 30, 90);
 }
 
 #menuItem-bluetooth {
