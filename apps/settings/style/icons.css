@@ -2,11 +2,12 @@
 /******************************************************************************
  * Setting icons
  */
-
+ 
 .menu-item {
   padding-left: 5.5rem;
   background-repeat: no-repeat;
   background-position: 1.4rem center;
+  background-size: 3rem;
 }
 
 .menu-item-desc {
@@ -14,107 +15,107 @@
 }
 
 #menuItem-airplaneMode {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 0, 30, 30, 0);
+  background-image: url("images/icons_sprite.svg#svgView(viewBox(0,0,30,30))");
 }
 
 #menuItem-gps {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 0, 60, 30, 30);
+  background-image: url("images/icons_sprite.svg#svgView(viewBox(30,0,30,30))");
 }
 
 #menuItem-wifi {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 0, 90, 30, 60);
+  background-image: url("images/icons_sprite.svg#svgView(viewBox(60,0,30,30))");
 }
 
 #menuItem-cellularAndData {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 0, 120, 30, 90);
+  background-image: url("images/icons_sprite.svg#svgView(viewBox(90,0,30,30))");
 }
 
 #menuItem-bluetooth {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 0, 150, 30, 120);
+  background-image: url("images/icons_sprite.svg#svgView(viewBox(120,0,30,30))");
 }
 
 #menuItem-internetSharing {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 30, 30, 60, 0);
+  background-image: url("images/icons_sprite.svg#svgView(viewBox(0,30,30,30))");
 }
 
 #menuItem-sound {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 30, 60, 60, 30);
+  background-image: url("images/icons_sprite.svg#svgView(viewBox(30,30,30,30))");
 }
 
 #menuItem-display {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 30, 90, 60, 60);
+  background-image: url("images/icons_sprite.svg#svgView(viewBox(60,30,30,30))");
 }
 
 #menuItem-notifications {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 30, 120, 60, 90);
+  background-image: url("images/icons_sprite.svg#svgView(viewBox(90,30,30,30))");
 }
 
 #menuItem-dateAndTime {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 30, 150, 60, 120);
+  background-image: url("images/icons_sprite.svg#svgView(viewBox(120,30,30,30))");
 }
 
 #menuItem-languageAndRegion {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 60, 30, 90, 0);
+  background-image: url("images/icons_sprite.svg#svgView(viewBox(0,60,30,30))");
 }
 
 #menuItem-keyboard {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 60, 60, 90, 30);
+  background-image: url("images/icons_sprite.svg#svgView(viewBox(30,60,30,30))");
 }
 
 #menuItem-persona {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 60, 90, 90, 60);
+  background-image: url("images/icons_sprite.svg#svgView(viewBox(60,60,30,30))");
 }
 
 #menuItem-mail {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 60, 120, 90, 90);
+  background-image: url("images/icons_sprite.svg#svgView(viewBox(90,60,30,30))");
 }
 
 #menuItem-phoneLock {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 60, 150, 90, 120);
+  background-image: url("images/icons_sprite.svg#svgView(viewBox(120,60,30,30))");
 }
 
 #menuItem-simSecurity {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 90, 30, 120, 0);
+  background-image: url("images/icons_sprite.svg#svgView(viewBox(0,90,30,30))");
 }
 
 #menuItem-appPermissions {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 90, 60, 120, 30);
+  background-image: url("images/icons_sprite.svg#svgView(viewBox(30,90,30,30))");
 }
 
 #menuItem-doNotTrack {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 90, 90, 120, 60);
+  background-image: url("images/icons_sprite.svg#svgView(viewBox(60,90,30,30))");
 }
 
 #menuItem-deviceInfo {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 90, 120, 120, 90);
+  background-image: url("images/icons_sprite.svg#svgView(viewBox(90,90,30,30))");
 }
 
 #menuItem-battery {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 90, 150, 120, 120);
+  background-image: url("images/icons_sprite.svg#svgView(viewBox(120,90,30,30))");
 }
 
 #menuItem-deviceStorage {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 120, 30, 150, 0);
+  background-image: url("images/icons_sprite.svg#svgView(viewBox(0,120,30,30))");
 }
 
 #menuItem-mediaStorage {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 120, 60, 150, 30);
+  background-image: url("images/icons_sprite.svg#svgView(viewBox(30,120,30,30))");
 }
 
 #menuItem-accessibility {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 120, 90, 150, 60);
+  background-image: url("images/icons_sprite.svg#svgView(viewBox(60,120,30,30))");
 }
 
 #menuItem-improveBrowserOS {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 120, 120, 150, 90);
+  background-image: url("images/icons_sprite.svg#svgView(viewBox(90,120,30,30))");
 }
 
 #menuItem-help {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 120, 120, 150, 90);
+  background-image: url("images/icons_sprite.svg#svgView(viewBox(90,120,30,30))");
 }
 
 #menuItem-icc {
-  background-image: -moz-image-rect(url(images/icons_sprite.png), 120, 150, 150, 120);
+  background-image: url("images/icons_sprite.svg#svgView(viewBox(120,120,30,30))");
 }
 
 
