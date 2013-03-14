@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>demo Store</title>
+
+<link rel="stylesheet" type="text/css" href="style/headers.css"/>
+<link rel="stylesheet" type="text/css" href="style/lists.css" />
+<link rel="stylesheet" type="text/css" href="style/input_areas.css" />
+<link rel="stylesheet" type="text/css" href="style/app.css"/>
+</head>
+
+<body role="application">
+
+  <section role="region" id="list-view" data-position="current">
+    <header>
+      <menu type="toolbar">
+        <button id="settings-btn"><span class="icon icon-settings">settings</span></button>
+      </menu>
+      <h1>demo Store</h1>
+    </header>
+    <article id="appList" data-type="list">
+      <ul>
+        <li>
+          <a href="#">
+            <aside><img src="style/images/default.png"></aside>
+            <aside class="pack-end install"></aside>
+            <p>App 1</p>
+            <p>App developer</p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <aside><img src="style/images/default.png"></aside>
+            <aside class="pack-end install"></aside>
+            <p>App 2</p>
+            <p>App developer</p>
+          </a>
+        </li>
+      </ul>
+    </article>
+  </section>
+  <section role="region" id="details-view" data-position="right">
+    <header>
+      <button class="back-button"><span class="icon icon-back">back</span></button>
+      <h1>App details</h1>
+    </header>
+    <article id="appList" data-type="list">
+      <ul>
+        <li>
+          <a href="#">
+            <p>Lorem Ipsum text here</p>
+            <p>App developer</p>
+          </a>
+        </li>
+      </ul>
+    </article>
+  </section>
+
+  <!--section role="region" id="settings-view" class="skin-organic">
+    <header>
+      <button id="close-btn"><span class="icon icon-close">close</span></button>
+      <menu type="toolbar">
+        <button id="settings-btn">Log in</button>
+      </menu>
+      <h1>Settings</h1>
+    </header>
+    <article>
+      <form>
+        <p>
+          <input type="text" placeholder="username">
+          <button type="reset">Clear</button>
+        </p>
+        <p><input type="password" placeholder="password"/></p>
+      </form>
+    </article>
+  </section-->
+
+  <script src="js/app.js"></script>
+</body>
+</html>

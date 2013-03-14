@@ -1,0 +1,138 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  background-color: #fff;
+}
+
+body {
+  height: 100%;
+  display: block;
+  overflow: hidden;
+}
+
+section[role="region"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+section[role="region"] > article {
+  background: #fff;
+}
+
+#settings-view {
+  z-index: 10;
+}
+
+.move-down {
+  transform: translateY(100%);
+	transition: all 0.2s;
+}
+
+.move-up {
+	transform: translateY(0);
+	transition: all 0.2s;
+}
+
+section[role="region"] > header:first-child .icon.icon-settings {
+  background-image: url(images/settings.png);
+}
+
+[data-type="list"] li > a aside img {
+  height: 4rem;
+  width: 4rem;
+  margin: 1rem 1rem 0 0;
+}
+
+[data-type="list"] li > a aside.pack-end.install {
+  background: url(images/download.png) no-repeat;
+  height: 3rem;
+  width: 3rem;
+  margin: 1.5rem 0 0 1rem;
+}
+
+#settings-view form {
+	margin: 1.5rem;
+}
+
+
+/* TRANSITIONS */
+/* Transition: Go deeper */
+
+/* initial values */
+[data-position="right"] {
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+  z-index: 10;
+}
+
+/* animations */
+[data-position="current"].left header:first-child h1 {
+  animation: headerCurrentToLeft 0.3s forwards;
+}
+[data-position="current"].left > article {
+  animation: currentToLeft 0.3s forwards;
+}
+[data-position="right"].left {
+  animation: rightToCurrent 0.3s forwards;
+}
+[data-position="right"].left header:first-child {
+  animation: show 0.3s forwards;
+}
+[data-position="current"].right header:first-child h1 {
+  animation: headerLeftToCurrent 0.3s forwards;
+}
+[data-position="current"].right > article {
+  animation: leftToCurrent 0.3s forwards;
+}
+[data-position="right"].right {
+  animation: currentToRight 0.3s forwards;
+}
+[data-position="right"].right header:first-child {
+  animation: hide 0.3s forwards;
+}
+
+@keyframes show {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes hide {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes rightToCurrent {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes currentToLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes currentToRight {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes leftToCurrent {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes headerCurrentToLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-20%); }
+}
+
+@keyframes headerLeftToCurrent {
+  0%   { transform: translateX(-20%); }
+  100% { transform: translateX(0); }
+}
+
+
