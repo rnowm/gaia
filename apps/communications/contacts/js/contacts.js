@@ -289,7 +289,7 @@ var Contacts = (function() {
           return;
         }
         contactsDetails.render(currentContact, TAG_OPTIONS);
-        navigation.go('view-contact-details', 'right-left');
+        navigation.go('view-contact-details', 'goDeeper');
       });
     });
   };
