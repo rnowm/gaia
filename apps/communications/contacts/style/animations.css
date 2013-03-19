@@ -1,4 +1,7 @@
-/* Prompts animation */
+/* TRANSITIONS */
+
+/* Transition: Prompts */
+
 .fadeIn {
   animation: fadeIn 0.2s forwards;
 }
@@ -6,4 +9,118 @@
 .fadeOut {
   animation: fadeOut 0.2s forwards;
 }
-/* Prompts animation end */
+
+/* Transition end: Prompts*/
+
+/* Transition: Going deeper */
+
+.appGoDeeperOut header:first-child h1 {
+  animation: headerCurrentToLeft 0.4s forwards;
+}
+.appGoDeeperOut > article {
+  animation: currentToLeft 0.4s forwards;
+}
+.appGoDeeperIn {
+  animation: rightToCurrent 0.4s forwards;
+}
+.appGoDeeperIn header:first-child {
+  animation: show 0.4s forwards;
+}
+.appGoDeeperBackIn header:first-child h1 {
+  animation: headerLeftToCurrent 0.4s forwards;
+}
+.appGoDeeperBackIn > article {
+  animation: leftToCurrent 0.4s forwards;
+}
+.appGoDeeperBackOut {
+  animation: currentToRight 0.4s forwards;
+}
+.appGoDeeperBackOut header:first-child {
+  animation: hide 0.4s forwards;
+}
+
+@keyframes show {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes hide {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes rightToCurrent {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes currentToLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes currentToRight {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes leftToCurrent {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes headerCurrentToLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-20%); }
+}
+
+@keyframes headerLeftToCurrent {
+  0%   { transform: translateX(-20%); }
+  100% { transform: translateX(0); }
+}
+
+/* Transition end: Going deeper */
+
+/* Transition: Going up */
+
+.appGoUpIn {
+  animation: appGoUpIn 0.5s forwards ease-in;
+}
+
+.appGoUpBackOut {
+  animation: appGoUpBackOut 0.5s forwards ease-in;
+}
+
+@keyframes appGoUpIn {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes appGoUpBackOut {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100%); }
+}
+
+/* Transition end: Going up */
+
+/* Transition end: Going left */
+
+.appGoLeftIn {
+  animation: appGoLeftIn 0.5s forwards ease-in;
+}
+
+.appGoLeftBackOut {
+  animation: appGoLeftBackOut 0.5s forwards ease-in;
+}
+
+@keyframes appGoLeftIn {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes appGoLeftBackOut {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+/* Transition end: Going left */

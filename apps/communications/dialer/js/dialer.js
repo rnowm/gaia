@@ -75,9 +75,15 @@ var CallHandler = (function callHandler() {
       LazyL10n.get(function localized(_) {
         var title = _('missedCall');
 
-        var sender = (contact == null) ? number :
-          (Utils.getPhoneNumberPrimaryInfo(matchingTel, contact) ||
-            _('unknown'));
+        var sender;
+        if (!number) {
+          sender = _('unknown');
+        } else if (contact) {
+          sender = Utils.getPhoneNumberPrimaryInfo(matchingTel, contact) ||
+              _('unknown');
+        } else {
+          sender = number;
+        }
 
         var body = _('from', {sender: sender});
 
@@ -379,6 +385,8 @@ var NavbarManager = {
     // contacts activites. Postponed to v2
     var checkContactsTab = function() {
       var contactsIframe = document.getElementById('iframe-contacts');
+      if (!contactsIframe)
+        return;
 
       var index = contactsIframe.src.indexOf('#add-parameters');
       if (index != -1) {
@@ -405,8 +413,15 @@ var NavbarManager = {
         break;
       case '#contacts-view':
         var frame = document.getElementById('iframe-contacts');
-        if (!frame.src) {
+        if (!frame) {
+          var view = document.getElementById('iframe-contacts-container');
+          frame = document.createElement('iframe');
           frame.src = '/contacts/index.html';
+          frame.id = 'iframe-contacts';
+          frame.setAttribute('frameBorder', 'no');
+          frame.classList.add('grid-wrapper');
+
+          view.appendChild(frame);
         }
 
         contacts.classList.add('toolbar-option-selected');

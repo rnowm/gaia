@@ -308,6 +308,18 @@ var WindowManager = (function() {
     setDisplayedApp(homescreen);
   });
 
+  // XXX: We couldn't avoid to stop inline activities
+  // when screen is turned off and lockscreen is enabled
+  // to avoid two cameras iframes are competing resources
+  // if the user opens a app to call camera activity and
+  // at the same time open camera app from lockscreen.
+
+  window.addEventListener('lock', function onScreenLocked() {
+    if (inlineActivityFrames.length) {
+      stopInlineActivity(true);
+    }
+  });
+
   windows.addEventListener('transitionend', function frameTransitionend(evt) {
     var prop = evt.propertyName;
     var frame = evt.target;
@@ -375,25 +387,12 @@ var WindowManager = (function() {
     }
 
     if (classList.contains('opening')) {
-      var onWindowReady = function() {
-        windowOpened(frame);
+      windowOpened(frame);
 
-        setTimeout(openCallback);
-        openCallback = null;
+      setTimeout(openCallback);
+      openCallback = null;
 
-        setOpenFrame(null);
-      };
-
-      // If this is a cold launch let's wait for the app to load first
-      var iframe = openFrame.firstChild;
-      if ('unpainted' in iframe.dataset) {
-        iframe.addEventListener('mozbrowserloadend', function on(e) {
-          iframe.removeEventListener('mozbrowserloadend', on);
-          onWindowReady();
-        });
-      } else {
-        onWindowReady();
-      }
+      setOpenFrame(null);
     } else if (classList.contains('closing')) {
       windowClosed(frame);
 
@@ -816,11 +815,6 @@ var WindowManager = (function() {
     evt.initCustomEvent('appwillclose', true, false, { origin: origin });
     closeFrame.dispatchEvent(evt);
 
-    if ('wrapper' in closeFrame.dataset) {
-      wrapperHeader.classList.remove('visible');
-      wrapperFooter.classList.remove('visible');
-    }
-
     transitionCloseCallback = function startClosingTransition() {
       // We have been canceled by another transition.
       if (!closeFrame || transitionCloseCallback != startClosingTransition)
@@ -832,6 +826,11 @@ var WindowManager = (function() {
       // Start the transition
       closeFrame.classList.add('closing');
       closeFrame.classList.remove('active');
+
+      if ('wrapper' in closeFrame.dataset) {
+        wrapperHeader.classList.remove('visible');
+        wrapperFooter.classList.remove('visible');
+      }
     };
 
     waitForNextPaint(homescreenFrame, transitionCloseCallback);

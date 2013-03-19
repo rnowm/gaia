@@ -2,8 +2,32 @@
 
 function navigationStack(currentView) {
   var transitions = {
-    'right-left': 'view-right',
-    'popup': 'view-bottom'
+    'right-left': {
+      forwards: {
+        next: 'appGoLeftIn'
+      },
+      backwards: {
+        current: 'appGoLeftBackOut'
+      }
+    },
+    'popup': {
+      forwards: {
+        next: 'appGoUpIn'
+      },
+      backwards: {
+        current: 'appGoUpBackOut'
+      }
+    },
+    'goDeeper': {
+      forwards: {
+        current: 'appGoDeeperOut',
+        next: 'appGoDeeperIn'
+      },
+      backwards: {
+        current: 'appGoDeeperBackOut',
+        next: 'appGoDeeperBackIn'
+      }
+    }
   };
 
   var _currentView = currentView;
@@ -11,12 +35,12 @@ function navigationStack(currentView) {
 
   stack.push({view: currentView, transition: 'popup'});
 
-  var waitForTransition = function(view, callback) {
+  var waitForAnimation = function ng_waitForAnimation(view, callback) {
     if (!callback)
       return;
 
-    view.addEventListener('transitionend', function onTransitionEnd() {
-      view.removeEventListener('transitionend', onTransitionEnd);
+    view.addEventListener('animationend', function ng_onAnimationEnd() {
+      view.removeEventListener('animationend', ng_onAnimationEnd);
       setTimeout(callback, 0);
     });
   };
@@ -30,8 +54,20 @@ function navigationStack(currentView) {
       return item.view != nextView;
     });
 
+    var current = document.getElementById(_currentView);
+    if (transitions[transition].backwards.next) {
+      current.classList.remove(transitions[transition].backwards.next);
+    }
+    if (transitions[transition].forwards.current) {
+      current.classList.add(transitions[transition].forwards.current);
+    }
     var next = document.getElementById(nextView);
-    next.classList.remove(transitions[transition] || transition);
+    if (transitions[transition].backwards.current) {
+      next.classList.remove(transitions[transition].backwards.current);
+    }
+    if (transitions[transition].forwards.next) {
+      next.classList.add(transitions[transition].forwards.next);
+    }
     stack.push({ view: nextView, transition: transition});
     next.style.zIndex = stack.length;
     _currentView = nextView;
@@ -49,8 +85,30 @@ function navigationStack(currentView) {
     var current = document.getElementById(currentView.view);
     var nextView = stack[stack.length - 1];
     var transition = currentView.transition;
-    current.classList.add(transitions[transition] || transition);
-    waitForTransition(current, callback);
+    if (transitions[transition].forwards.next) {
+      current.classList.remove(transitions[transition].forwards.next);
+    }
+    if (transitions[transition].backwards.current) {
+      current.classList.add(transitions[transition].backwards.current);
+      current.addEventListener('animationend',
+        function ng_onCurrentBackwards() {
+          current.removeEventListener('animationend', ng_onCurrentBackwards);
+          current.classList.remove(transitions[transition].backwards.current);
+        }
+      );
+    }
+    var next = document.getElementById(nextView.view);
+    if (transitions[transition].forwards.current) {
+      next.classList.remove(transitions[transition].forwards.current);
+    }
+    if (transitions[transition].backwards.next) {
+      next.classList.add(transitions[transition].backwards.next);
+      next.addEventListener('animationend', function ng_onNextBackwards() {
+        next.removeEventListener('animationend', ng_onNextBackwards);
+        next.classList.remove(transitions[transition].backwards.next);
+      });
+    }
+    waitForAnimation(current, callback);
     _currentView = nextView.view;
   };
 
