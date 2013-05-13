@@ -1,0 +1,10 @@
+{
+  "name": "Picasa gallery",
+  "description": "demo app in Firefox OS.",
+  "launch_path": "/index.html",
+  "developer": {
+    "name": "Arnau March",
+    "url": "http://buildingfirefoxos.com"
+  },
+  "orientation": "portrait"
+}
