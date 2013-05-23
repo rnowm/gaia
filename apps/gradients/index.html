@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Test app</title>
+  <!-- Building blocks -->
+  <link rel="stylesheet" href="shared/style/headers.css">
+  <link rel="stylesheet" href="shared/style_unstable/lists.css">
+  
+  <link rel="stylesheet" href="style/app.css">
+  <style>
+
+    [data-position="back"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 20;
+      opacity: 0;
+    }
+    [data-position="back"].fade-in {
+      animation: fadeIn 0.2s forwards;
+    }
+    [data-position="back"].fade-out {
+      animation: fadeOut 0.2s forwards;
+    }
+  </style>
+</head>
+<body>
+  <section id="index">
+    <section role="region" class="skin-organic">
+      <header>
+        <h1>Gradient performance</h1>
+      </header>
+    </section>
+
+    <section data-type="list" id="list">
+      <ul>
+        <h2>Click on the list to create 1000 headers</h2>
+        <h3>Colors are slightly different to see they change</h3>
+        <li>
+          <a id="btn-action-1" href="#">
+            <p>PNG image</p>
+            <p class="time"></p>
+          </a>
+        </li>
+        <li>
+          <a id="btn-action-2" href="#">
+            <p>SVG image</p>
+            <p class="time"></p>
+          </a>
+        </li>
+        <li>
+          <a id="btn-action-3" href="#">
+            <p>CSS gradient</p>
+            <p class="time"></p>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section id="container"></section>
+  </section> <!-- end index -->
+
+  <script>
+    function addElements(element,cls,item) {
+      document.querySelector('#btn-action-1').className = '';
+      document.querySelector('#btn-action-2').className = '';
+      document.querySelector('#btn-action-3').className = '';
+      item.className = 'current';
+      container = document.querySelector('#container');
+      container.innerHTML = "";
+      var t0 = window.performance.now();
+      for (var i = 0; i < 1000; i ++) {
+        var header = document.createElement('div');
+        header.innerHTML =  '<header class="'+cls+'"><h1>Header '+ (i+1) +'</h1></header>';
+        container.appendChild(header);
+      }
+      var t1 = window.performance.now();
+      item.querySelector('.time').innerHTML = "time: " + Math.round((t1 - t0) * 100) / 100
++ " msec";
+    }
+
+    document.querySelector('#btn-action-1').addEventListener ('click', function () {
+      addElements(document.querySelector('#index'),'image',this);
+    });
+
+    document.querySelector('#btn-action-2').addEventListener ('click', function () {
+      addElements(document.querySelector('#index'),'svg',this);
+    });
+
+    document.querySelector('#btn-action-3').addEventListener ('click', function () {
+      addElements(document.querySelector('#index'),'css',this);
+    });
+
+  </script>
+</body>
+</html>
+
