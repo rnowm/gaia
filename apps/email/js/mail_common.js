@@ -430,7 +430,7 @@ console.log('pushCard for type: ' + type);
 
       // If the card has any <button type="reset"> buttons,
       // make them clear the field they're next to and not the entire form.
-      // See input_areas.js and shared/style/input_areas.css.
+      // See input_areas.js and shared/style/v1/input_areas.css.
       hookupInputAreaResetButtons(domNode);
 
       if ('postInsert' in cardImpl)
