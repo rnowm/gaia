@@ -89,7 +89,7 @@ var ClockView = {
     var d = new Date();
     var time = Utils.getLocaleTime(d);
     this.time.textContent = time.t;
-    this.hourState.textContent = time.p || '  '; // 2 non-break spaces
+    this.hourState.textContent = time.p || '  '; // 2 non-break spaces
 
     var self = this;
     this._updateDigitalClockTimeout =
