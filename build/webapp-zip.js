@@ -133,7 +133,9 @@ function addToZip(zip, pathInZip, file) {
  */
 function copyBuildingBlock(zip, blockName, dirName) {
   let dirPath = '/shared/' + dirName + '/';
-
+  dump('--------------'+ '\n');
+  dump('blockName '+blockName+ '\n');
+  dump('dirName '+dirName+ '\n');
   // Compute the nsIFile for this shared style
   let styleFolder = Gaia.sharedFolder.clone();
   styleFolder.append(dirName);
@@ -141,7 +143,8 @@ function copyBuildingBlock(zip, blockName, dirName) {
   if (!styleFolder.exists()) {
     throw new Error('Using inexistent shared style: ' + blockName);
   }
-
+  dump('cssFile '+cssFile+ '\n');
+  
   cssFile.append(blockName + '.css');
   addToZip(zip, dirPath + blockName + '.css', cssFile);
 
@@ -243,7 +246,7 @@ Gaia.webapps.forEach(function(webapp) {
     locales: [],         // List of locale names to copy
     resources: [],       // List of resources to copy
     styles: [],          // List of stable style names to copy
-    unstable_styles: []  // List of unstable style names to copy
+    //unstable_styles: []  // List of unstable style names to copy
   };
 
   function sortResource(kind, path) {
@@ -266,15 +269,31 @@ Gaia.webapps.forEach(function(webapp) {
         }
         break;
       case 'style':
-        let styleName = path.substr(0, path.lastIndexOf('.'));
-        if (used.styles.indexOf(styleName) == -1)
-          used.styles.push(styleName);
+
+        let segments = path.split('/');
+        let version = segments[0], stable = true;
+        if (segments[1] === 'unstable') {
+          stable = false;
+          let styleName = segments[2].substr(0, segments[2].lastIndexOf('.'));
+        } else {
+          let styleName = segments[1].substr(0, segments[1].lastIndexOf('.'));
+        }
+        
+        if (used.styles.map(function(file) {
+          return file.name;}).indexOf(styleName) == -1)
+          used.styles.push({
+            version: version,
+            stable: stable,
+            styleName: styleName
+          });
+
+          //¿¿¿???
         break;
-      case 'style_unstable':
-        let unstableStyleName = path.substr(0, path.lastIndexOf('.'));
-        if (used.unstable_styles.indexOf(unstableStyleName) == -1)
-          used.unstable_styles.push(unstableStyleName);
-        break;
+      // case 'style_unstable':
+      //   let unstableStyleName = path.substr(0, path.lastIndexOf('.'));
+      //   if (used.unstable_styles.indexOf(unstableStyleName) == -1)
+      //     used.unstable_styles.push(unstableStyleName);
+      //   break;
     }
   }
 
@@ -376,19 +395,20 @@ Gaia.webapps.forEach(function(webapp) {
 
   used.styles.forEach(function(name) {
     try {
-      copyBuildingBlock(zip, name, 'style');
+      // if (name.indexOf('unstable') !== -1)
+      copyBuildingBlock(zip, name, stable, version, 'style');
     } catch (e) {
       throw new Error(e + ' from: ' + webapp.domain);
     }
   });
 
-  used.unstable_styles.forEach(function(name) {
-    try {
-      copyBuildingBlock(zip, name, 'style_unstable');
-    } catch (e) {
-      throw new Error(e + ' from: ' + webapp.domain);
-    }
-  });
+  // used.unstable_styles.forEach(function(name) {
+  //   try {
+  //     copyBuildingBlock(zip, name, 'style_unstable');
+  //   } catch (e) {
+  //     throw new Error(e + ' from: ' + webapp.domain);
+  //   }
+  // });
 
   zip.close();
 });
