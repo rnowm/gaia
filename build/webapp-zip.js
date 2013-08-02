@@ -131,27 +131,60 @@ function addToZip(zip, pathInZip, file) {
  * @param {String}       blockName name of the building block to copy.
  * @param {String}       dirName   name of the shared directory to use.
  */
-function copyBuildingBlock(zip, blockName, dirName) {
-  let dirPath = '/shared/' + dirName + '/';
+function copyBuildingBlock(zip, file) {
+  let dirPath = '/shared/style/';
   dump('--------------'+ '\n');
-  dump('blockName '+blockName+ '\n');
-  dump('dirName '+dirName+ '\n');
-  // Compute the nsIFile for this shared style
+  dump('dirPath: '+dirPath+ '\n');
+  dump('file version: '+file.version+ '\n');
+  dump('file type: '+file.type+ '\n');
+  dump('file name: '+file.name+ '\n');
+  // Compute the nsIFile for this shared style.
+  // First of all we access to /style level
   let styleFolder = Gaia.sharedFolder.clone();
-  styleFolder.append(dirName);
-  let cssFile = styleFolder.clone();
+  styleFolder.append('style');
   if (!styleFolder.exists()) {
-    throw new Error('Using inexistent shared style: ' + blockName);
+    // dump('Using inexistent shared style: ' + file.name+ '\n');
+    throw new Error('Using inexistent shared style: ' + file.name);
   }
-  dump('cssFile '+cssFile+ '\n');
+  // We need to go deeper taking into account the version
+  let versionFolder = styleFolder.clone();
+  versionFolder.append(file.version);
+  if (!versionFolder.exists()) {
+    // dump('Using inexistent version style: ' + file.name+ '\n');
+    throw new Error('Using inexistent version style: ' + file.name);
+  }
+  // Now we need the cssFile!
+  let cssFile, subFolder, zipURL;
+  if (file.type) {
+    // We need to go deeper taking into account the type
+    // For example 'unstable', 'test'...
+    let specificFolder = versionFolder.clone();
+    specificFolder.append(file.type);
+
+    cssFile = specificFolder.clone();
+    cssFile.append(file.name + '.css');
+
+    subFolder = specificFolder.clone();
+    subFolder.append(file.name);
+
+    zipURL = dirPath + file.version + '/' + file.type + '/' + file.name + '.css';
+  } else {
+    cssFile = versionFolder.clone();
+    cssFile.append(file.name + '.css');
+
+    subFolder = versionFolder.clone();
+    versionFolder.append(file.name);
+
+    zipURL = dirPath + file.version + '/' + file.name + '.css';
   
-  cssFile.append(blockName + '.css');
-  addToZip(zip, dirPath + blockName + '.css', cssFile);
+  }
+  dump('zipURL: ' +zipURL+ '\n');
+  addToZip(zip, zipURL, cssFile);
 
   // Copy everything but index.html and any other HTML page into the
   // style/<block> folder.
-  let subFolder = styleFolder.clone();
-  subFolder.append(blockName);
+  // let subFolder = styleFolder.clone();
+  // subFolder.append(blockName);
   ls(subFolder, true).forEach(function(file) {
       let relativePath = file.getRelativeDescriptor(styleFolder);
       // Ignore HTML files at style root folder
@@ -191,7 +224,7 @@ Gaia.webapps.forEach(function(webapp) {
   // If BUILD_APP_NAME isn't `*`, we only accept one webapp
   if (BUILD_APP_NAME != '*' && webapp.sourceDirectoryName != BUILD_APP_NAME)
     return;
-
+dump('APP NAME:' +webapp.sourceDirectoryName+ '\n');
   // Compute webapp folder name in profile
   let webappTargetDir = webappsTargetDir.clone();
   webappTargetDir.append(webapp.domain);
@@ -269,25 +302,31 @@ Gaia.webapps.forEach(function(webapp) {
         }
         break;
       case 'style':
-
+        dump('STYLE!!!!!!!\n');
         let segments = path.split('/');
-        let version = segments[0], stable = true;
-        if (segments[1] === 'unstable') {
-          stable = false;
-          let styleName = segments[2].substr(0, segments[2].lastIndexOf('.'));
+        dump('segments ' + segments +'\n');
+        let version = segments[0], type, name;
+        if (segments.length > 2) {
+          type = segments[1];
+          name = segments[2].substr(0, segments[2].lastIndexOf('.'));
         } else {
-          let styleName = segments[1].substr(0, segments[1].lastIndexOf('.'));
+          name = segments[1].substr(0, segments[1].lastIndexOf('.'));
         }
         
-        if (used.styles.map(function(file) {
-          return file.name;}).indexOf(styleName) == -1)
+        function isFileAppended(name) {
+          let filesAppended = used.styles.map(function(file) {
+            return file.name;
+          });
+          return filesAppended.indexOf(name) === -1 ? false : true;
+        }
+
+        if(!isFileAppended(name)) {
           used.styles.push({
             version: version,
-            stable: stable,
-            styleName: styleName
+            type: type,
+            name: name
           });
-
-          //¿¿¿???
+        }
         break;
       // case 'style_unstable':
       //   let unstableStyleName = path.substr(0, path.lastIndexOf('.'));
@@ -393,10 +432,10 @@ Gaia.webapps.forEach(function(webapp) {
     }
   });
 
-  used.styles.forEach(function(name) {
+  used.styles.forEach(function(file) {
     try {
       // if (name.indexOf('unstable') !== -1)
-      copyBuildingBlock(zip, name, stable, version, 'style');
+      copyBuildingBlock(zip, file);
     } catch (e) {
       throw new Error(e + ' from: ' + webapp.domain);
     }
