@@ -74,7 +74,7 @@ form[role="dialog"][data-type="object"] > menu {
   left: 0;
   right: 0;
   bottom: 7rem;
-  height: calc(100% - 12.1rem);
+  max-height: calc(100% - 12.1rem);
   overflow: scroll;
 }
 
