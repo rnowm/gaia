@@ -64,16 +64,10 @@ form[role="dialog"][data-type="object"] > header:after {
 
 form[role="dialog"][data-type="action"] > section,
 form[role="dialog"][data-type="object"] > section {
-  width: 100%;
-  display: inline-block;
-  vertical-align: top;
-  white-space: normal;
-  font-size: 1.6rem;
-  line-height: 1em;
-  color: #fff !important;
-  padding: 2rem 2rem 0 2rem;
-  height: 5rem;
-  -moz-box-sizing: border-box;
+  position: absolute;
+  height: calc(100% - 12.1rem);
+  bottom: 7rem;
+  overflow: scroll;
 }
 
 form[role="dialog"][data-type="action"] > section a {
@@ -95,7 +89,9 @@ form[role="dialog"][data-type="object"] > menu {
 }
 
 form[role="dialog"][data-type="action"] > menu > button,
-form[role="dialog"][data-type="object"] > menu > button {
+form[role="dialog"][data-type="object"] > menu > button,
+form[role="dialog"][data-type="action"] > section > button,
+form[role="dialog"][data-type="object"] > section > button {
   width: calc(100% - 3rem);
   height: 4rem;
   -moz-box-sizing: border-box;
@@ -142,9 +138,21 @@ form[role="dialog"][data-type="object"] > menu > button:last-child:before {
   border-top: 0.1rem solid rgba(255, 255, 255, 0.1);
 }
 
+form[role="dialog"][data-type="action"] > section > button:first-child,
+form[role="dialog"][data-type="object"] > section > button:first-child {
+  margin-top: 2rem;
+}
+
+form[role="dialog"][data-type="action"] > section > button:last-child,
+form[role="dialog"][data-type="object"] > section > button:last-child {
+  margin-bottom: 2rem;
+}
+
 /* Press state */
 form[role="dialog"][data-type="action"] > menu > button:active,
-form[role="dialog"][data-type="object"] > menu > button:active {
+form[role="dialog"][data-type="object"] > menu > button:active,
+form[role="dialog"][data-type="action"] > section > button:active,
+form[role="dialog"][data-type="object"] > section > button:active {
   background-color: #006f86;
   color: #333;
   text-shadow: 0 0.1rem 0 rgba(255, 255, 255, 0.25);
@@ -159,7 +167,9 @@ form[role="dialog"][data-type="object"] > menu > button:last-child:active {
 
 /* Disabled */
 form[role="dialog"][data-type="action"] > menu > button[disabled],
-form[role="dialog"][data-type="object"] > menu > button[disabled] {
+form[role="dialog"][data-type="object"] > menu > button[disabled],
+form[role="dialog"][data-type="action"] > section > button[disabled],
+form[role="dialog"][data-type="object"] > section > button[disabled] {
   background: #4d4d4d;
   color: #333;
   text-shadow: none;
