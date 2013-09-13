@@ -1,0 +1,20 @@
+{
+  "js": [
+    "mime_mapper.js",
+    "notification_helper.js",
+    "gesture_detector.js"
+  ],
+  "style": [
+    "input_areas.css",
+    "headers.css",
+    "switches.css",
+    "buttons.css",
+    "status.css",
+    "confirm.css",
+    "action_menu.css"
+  ],
+  "style_unstable": [
+    "progress_activity.css",
+    "tabs.css"
+  ]
+}
