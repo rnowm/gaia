@@ -11,9 +11,7 @@
 
     <!-- Shared styles -->
     <link rel="stylesheet" type="text/css" href="shared/style/headers.css">
-    <link rel="stylesheet" type="text/css" href="shared/style/status.css">
     <link rel="stylesheet" type="text/css" href="shared/style/confirm.css" >
-    <link rel="stylesheet" type="text/css" href="shared/style/buttons.css" >
     <link rel="stylesheet" type="text/css" href="shared/style/input_areas.css" >
 
     <!-- Specific styles -->
@@ -30,20 +28,15 @@
         <header>
           <button id="close"><span class="icon icon-close"> close </span></button>
           <menu type="toolbar">
+            <button id="validate" data-l10n-id="validatee" class="full recommend">Validate</button>
           </menu>
           <h1 id="title"> provisioning-message </h1>
         </header>
+        <section class="content">
+          <p data-l10n-id="pinHelp">The PIN code should have been provided to you by whomever sent you the configuration message.</p>
+          <input type="text" placeholder="Placeholder" value="PIN" required="">
+        </section>
       </section>
-      <section role="region">
-      <form hidden>
-        <p data-l10n-id="pinHelp">The PIN code should have been provided to you by whomever sent you the configuration message.</p>
-        <input type="text" placeholder="Placeholder" value="PIN" required="">
-        <menu type="toolbar">
-          <button id="validate" data-l10n-id="validatee">Validate</button>
-          <button id="dismiss" data-l10n-id="dismiss">Dismiss</button>
-        </menu>
-      </form>
-
       <!-- Confirm dialog --> 
       <form id="confirm-dialog" role="dialog" data-type="confirm" hidden>
         <section id="wappush-container" role="region">
@@ -55,10 +48,9 @@
           </div>
         </section>
         <menu>
-          <button id="continue" data-l10n-id="continue">Continue</button>
+          <button id="continue" class="full recommend" data-l10n-id="continue">Continue</button>
         </menu>
       </form>
-      </section>
     </article>
   </body>
 </html>
