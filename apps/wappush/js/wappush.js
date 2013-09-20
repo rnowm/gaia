@@ -49,9 +49,9 @@ var WapPushManager = {
   /**
    * Retrieves the parameters from an URL and forms an object with them
    *
-   * @param {String} input A string holding the parameters attached to an URL
+   * @param {String} input A string holding the parameters attached to an URL.
    *
-   * @return {Object} An object built using the parameters
+   * @return {Object} An object built using the parameters.
    */
   deserializeParameters: function wpm_deserializeParameters(input) {
     var rparams = /([^?=&]+)(?:=([^&]*))?/g;
@@ -68,26 +68,34 @@ var WapPushManager = {
    * Establish if we must show this message or not; the message is shown only
    * if the following conditions are met:
    * - WAP Push functionality is enabled
-   * - The message is either a SI or SL message
-   * - The sender's MSISDN is whitelisted or whitelisting is disabled
+   * - The message is either a SI or SL message and the sender's MSISDN is
+   *   whitelisted or whitelisting is disabled
+   * - The message is a Client Provisioning message
    *
-   * @param {Object} message The message to be checked
+   * @param {Object} message The message to be checked.
    *
-   * @return {Boolean} true if the message should be displayed, false otherwise
+   * @return {Boolean} true if the message should be displayed, false otherwise.
    */
   shouldDisplayMessage: function wpm_shouldDisplayMessage(message) {
-    if (!this._wapPushEnabled || !WhiteList.has(message.sender)) {
-       /* WAP push functionality is either completely disabled or the message
-        * comes from a non white-listed MSISDN, ignore it. */
+    if (!this._wapPushEnabled) {
+       /* WAP push functionality is either completely disabled, ignore it. */
        return false;
     }
 
-    if ((message.contentType != 'text/vnd.wap.si') &&
-        (message.contentType != 'text/vnd.wap.sl')) {
-      // Only accept SI and SL messages
-      console.log('Unsupported or invalid content type "' +
-                  message.contentType + '" for WAP Push message\n');
-      return false;
+    switch (message.contentType) {
+      case 'text/vnd.wap.si':
+      case 'text/vnd.wap.sl':
+        if (!WhiteList.has(message.sender)) {
+          /* The message comes from a non white-listed MSISDN, ignore it.*/
+          return false;
+        }
+        break;
+      case 'text/vnd.wap.connectivity-xml':
+        break;
+      default:
+        console.log('Unsupported or invalid content type "' +
+                    message.contentType + '" for WAP Push message\n');
+        return false;
     }
 
     return true;
@@ -98,7 +106,7 @@ var WapPushManager = {
    * the internal database and posts a notification which can be used to
    * display the message.
    *
-   * @param {Object} message The WAP Push message as provided by the system
+   * @param {Object} message The WAP Push message as provided by the system.
    */
   onWapPushReceived: function wpm_onWapPushReceived(message) {
     var self = this;
@@ -132,9 +140,9 @@ var WapPushManager = {
   /**
    * Displays an attention screen containing a WAP Push message
    *
-   * @param {String} sender The message sender
+   * @param {String} sender The message sender.
    * @param {String} content
-   *        The contents of the message with HTML tags already escaped
+   *        The contents of the message with HTML tags already escaped.
    */
   onNotification: function wpm_onNotification(event) {
     var params = this.deserializeParameters(event.imageURL);
@@ -145,7 +153,7 @@ var WapPushManager = {
   /**
    * Retrieves a WAP Push message from the database and displays it
    *
-   * @param {Number} timestamp The message timestamp
+   * @param {Number} timestamp The message timestamp.
    */
   displayWapPushMessage: function wpm_displayWapPushMessage(timestamp) {
     var self = this;
@@ -153,7 +161,17 @@ var WapPushManager = {
     asyncStorage.getItem(timestamp, function(message) {
       var protocol = window.location.protocol;
       var host = window.location.host;
-      var uri = protocol + '//' + host + '/message.html';
+      var uri = protocol + '//' + host;
+
+      switch (message.contentType) {
+        case 'text/vnd.wap.si':
+        case 'text/vnd.wap.sl':
+          uri += '/message.html';
+          break;
+        case 'text/vnd.wap.connectivity-xml':
+          uri += '/provisioning.html';
+          break;
+      }
 
       uri += '?';
       uri += [
@@ -164,7 +182,15 @@ var WapPushManager = {
       var messageScreen = window.open(uri, 'wappush_attention', 'attention');
 
       messageScreen.onload = function(evt) {
-        messageScreen.WapMessageScreen.init();
+        switch (message.contentType) {
+          case 'text/vnd.wap.si':
+          case 'text/vnd.wap.sl':
+            messageScreen.WapMessageScreen.init();
+            break;
+          case 'text/vnd.wap.connectivity-xml':
+            messageScreen.ProvisioningScreen.init();
+            break;
+        }
         asyncStorage.removeItem(timestamp);
       };
 

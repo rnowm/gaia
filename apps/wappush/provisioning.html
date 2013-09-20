@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <title>Provisioning message</title>
+
+    <!-- Localization -->
+    <script defer src="shared/js/l10n.js"></script>
+    <link rel="resource" type="application/l10n" href="locales/locales.ini">
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" type="text/css" href="shared/style/headers.css">
+    <link rel="stylesheet" type="text/css" href="shared/style/status.css">
+    <link rel="stylesheet" type="text/css" href="shared/style/confirm.css" >
+    <link rel="stylesheet" type="text/css" href="shared/style/buttons.css" >
+    <link rel="stylesheet" type="text/css" href="shared/style/input_areas.css" >
+
+    <!-- Specific styles -->
+    <link rel="stylesheet" type="text/css" href="style/wappush.css">
+
+    <!-- Specific code -->
+    <script defer src="js/provisioning.js"></script>
+  </head>
+
+  <body>
+    <article id="wappush-screen" role="region">
+      <!-- Provisioning PIN screen -->
+      <section role="region">
+        <header>
+          <button id="close"><span class="icon icon-close"> close </span></button>
+          <menu type="toolbar">
+          </menu>
+          <h1 id="title"> provisioning-message </h1>
+        </header>
+      </section>
+      <section role="region">
+      <form hidden>
+        <p data-l10n-id="pinHelp">The PIN code should have been provided to you by whomever sent you the configuration message.</p>
+        <input type="text" placeholder="Placeholder" value="PIN" required="">
+        <menu type="toolbar">
+          <button id="validate" data-l10n-id="validatee">Validate</button>
+          <button id="dismiss" data-l10n-id="dismiss">Dismiss</button>
+        </menu>
+      </form>
+
+      <!-- Confirm dialog --> 
+      <form id="confirm-dialog" role="dialog" data-type="confirm" hidden>
+        <section id="wappush-container" role="region">
+          <h1 id="ps-confirm-dialog-tittle"></h1>
+          <p>
+            <strong id="ps-confirm-dialog-message"></strong>
+          </p>
+          <div id="message">
+          </div>
+        </section>
+        <menu>
+          <button id="continue" data-l10n-id="continue">Continue</button>
+        </menu>
+      </form>
+      </section>
+    </article>
+  </body>
+</html>
