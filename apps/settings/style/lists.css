@@ -49,7 +49,7 @@ ul li > label {
 ul li.menu-item > label,
 ul li.menu-item > a {
   padding: 0.5rem 4rem 2rem 5.5rem;
-  margin: -1.5rem -1.5rem -1rem -1.5rem;
+  margin: -1rem -1.5rem;
   width: calc(100% + 3rem);
 }
 
