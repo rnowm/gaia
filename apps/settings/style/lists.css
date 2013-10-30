@@ -44,20 +44,20 @@ ul li > label {
   font-size: 1.9rem;
   margin: -1rem -1.5rem;
   padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
 }
 
 ul li.menu-item > label,
 ul li.menu-item > a {
-  padding: 0.5rem 4rem 2rem 5.5rem;
+  padding: 2rem 1rem 2rem 5.5rem;
   margin: -1rem -1.5rem;
   width: calc(100% + 3rem);
 }
 
-ul li.menu-item > label:only-child:not([for]) > span{
-  margin-top: 1em;
+/*ul li.menu-item > label:only-child:not([for]) > span{
   display: block;
-}
-
+} */
 
 /*
 ul li:not([aria-disabled="true"]) > a:active:before,
@@ -171,9 +171,8 @@ ul li > label:not([for]),
 ul li > label.pack-checkbox,
 ul li > label.pack-radio,
 ul li > label.pack-switch {
-  /*width: 100%;
-  margin: 0;*/
   height: 100%;
+  display: flex;
 }
 
 ul li > label.pack-checkbox > span:after,
