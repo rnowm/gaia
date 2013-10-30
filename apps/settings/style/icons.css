@@ -23,6 +23,7 @@
   top: calc((100% - 3rem) / 2);
   height: 100%;
   clip: rect(0, 3rem, 3rem, 0);
+  z-index: -1;
 }
 
 li:active:not([aria-disabled="true"]) .menu-item::before,
