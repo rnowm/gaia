@@ -311,23 +311,23 @@
           <h2 data-l10n-id="networkAndConnectivity">Network &amp; Connectivity</h2>
         </header>
         <ul>
-          <li>
+          <li id="menuItem-airplaneMode" class="menu-item">
             <label class="pack-switch">
-              <input name="ril.radio.disabled" class="uninit" type="checkbox">
-              <span></span>
+              <input type="checkbox" name="ril.radio.disabled"></input>
+              <span data-l10n-id="airplaneMode">Airplane mode</span>
             </label>
-            <a id="menuItem-airplaneMode" class="menu-item" data-l10n-id="airplaneMode">Airplane Mode</a>
           </li>
-          <li>
+          <li id="menuItem-gps" class="menu-item">
             <label class="pack-switch">
               <input name="geolocation.enabled" class="uninit" type="checkbox">
-              <span></span>
+              <span data-l10n-id="geolocation">Geolocation</span>
             </label>
-            <a id="menuItem-gps" class="menu-item" data-l10n-id="geolocation">Geolocation</a>
           </li>
-          <li>
-            <small id="wifi-desc" class="menu-item-desc"></small>
-            <a id="menuItem-wifi" class="menu-item" href="#wifi" data-l10n-id="wifi">Wi-Fi</a>
+          <li id="menuItem-wifi" class="menu-item">
+            <a href="#wifi">
+              <p data-l10n-id="wifi">Wi-Fi</p>
+              <small id="wifi-desc" class="menu-item-desc"></small>
+            </a>
           </li>
           <li id="call-settings">
             <small id="call-desc" class="menu-item-desc"></small>

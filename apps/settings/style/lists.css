@@ -5,18 +5,20 @@
 
 ul {
   margin: 0;
-  padding: 0;
   overflow: hidden;
   list-style: none;
+  padding: 0 1.5rem;
 }
 
 ul li {
   -moz-box-sizing: border-box;
   position: relative;
-  min-height: 6rem;
-  margin: 0 1.5rem;
+  
   border-bottom: 0.1rem solid #e6e6e3;
   color: #000;
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
 }
 
 ul li:last-child {
@@ -32,28 +34,55 @@ ul li label:not([for]) {
 }
 
 ul li > a,
-ul li > span {
-  display: block;
+ul li > span,
+ul li > label {
+  display: flex;
   text-decoration: none;
   outline: 0;
   color: #000;
   -moz-box-sizing: border-box;
-  height: 6rem;
   font-size: 1.9rem;
-  line-height: 6rem;
-  padding: 0 3rem;
-  margin: 0 -1.5rem;
+  margin: -1rem -1.5rem;
+  padding: 1rem 1.5rem;
 }
 
-ul li.active a,
-ul li.active span,
-ul li:not([aria-disabled="true"]) > small + a:active,
-ul li:not([aria-disabled="true"]) > a[href]:active,
-ul li:not([aria-disabled="true"]) > small + a:focus,
-ul li:not([aria-disabled="true"]) > a[href]:focus {
-  background-color: #b2f2ff;
-  color: #222;
+ul li.menu-item > label,
+ul li.menu-item > a {
+  padding: 0.5rem 4rem 2rem 5.5rem;
+  margin: -1.5rem -1.5rem -1rem -1.5rem;
+  width: calc(100% + 3rem);
 }
+
+ul li.menu-item > label:only-child:not([for]) > span{
+  margin-top: 1em;
+  display: block;
+}
+
+
+/*
+ul li:not([aria-disabled="true"]) > a:active:before,
+ul li:not([aria-disabled="true"]) > label:active:before {
+*/
+ul li[aria-disabled="true"]{
+  pointer-events: none;
+}
+
+ul li.active:after,
+ul li > label:active:after,
+ul li > a:active:after{
+  content:'';
+  background-color: rgba(0,213,255,0.3);
+  position: absolute;
+  top: 0;
+  right: -1.5rem;
+  bottom: 0;
+  left: -1.5rem;
+  z-index: 101;
+  clip: auto;
+  background-image: none;
+  width: auto;
+}
+
 
 ul li[aria-disabled="true"] > a {
   color: #797e80;
@@ -92,7 +121,7 @@ ul li > * {
 }
 
 /* sublines */
-ul li > small {
+ul li small {
   position: absolute;
   left: 1.5rem;
   right: 1.5rem;
@@ -104,18 +133,18 @@ ul li > small {
   pointer-events: none;
 }
 
-ul li > label.pack-checkbox + small,
-ul li > label.pack-radio + small {
+ul li > label.pack-checkbox > small,
+ul li > label.pack-radio > small {
   right: 6.1rem;
 }
 
-ul li > label.pack-switch + small {
+ul li > label.pack-switch > small {
    right: 9rem;
 }
 
 /* required for empty elements like Bluetooth */
-ul li > small:not(:empty) + a,
-ul li > small:not(:empty) + span {
+ul li small:not(:empty) + a,
+ul li small:not(:empty) + span {
   line-height: 4.4rem;
   padding-bottom: 0.1rem; /* Bug 903438 */
 }
@@ -130,6 +159,7 @@ ul li a[role="button"] {
   position: relative;
   top: 1.1rem;
   width: 100%;
+  margin-bottom: 1.2rem;
 }
 
 /* custom styles for boolean inputs (see /shared/style/switches.css) */
@@ -141,18 +171,16 @@ ul li > label:not([for]),
 ul li > label.pack-checkbox,
 ul li > label.pack-radio,
 ul li > label.pack-switch {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  /*width: 100%;
+  margin: 0;*/
   height: 100%;
 }
 
-ul li > label.pack-checkbox > span,
-ul li > label.pack-radio > span,
-ul li > label.pack-switch > input + span {
+ul li > label.pack-checkbox > span:after,
+ul li > label.pack-radio > span:after,
+ul li > label.pack-switch > input ~ span:after {
   left: auto;
-  right: 0;
+  right: 1rem;
 }
 
 ul li > label.pack-checkbox ~ a,
@@ -170,17 +198,17 @@ ul li > label.pack-radio ~ a {
   padding-right: 5.9rem;
 }
 
-ul li > label.pack-checkbox:active ~ a,
-ul li > label.pack-radio:active ~ a,
-ul li > label.pack-switch:active ~ a {
+/*ul li > label.pack-checkbox:active > span,
+ul li > label.pack-radio:active > span,
+ul li > label.pack-switch:active > span {
   background-color: #b2f2ff;
   color: #222;
-}
+}*/
 
-ul li > label:not([for]):only-child {
+/*ul li > label:not([for]):only-child {
   position: relative;
   padding: 0.5rem 0 1.5rem 0;
-}
+}*/
 
 
 /******************************************************************************
@@ -350,11 +378,78 @@ ul li > label.bug344618_polyfill div span:last-child:active {
 /******************************************************************************
  * Select boxes
  */
-.button.icon-dialog select {
-  border: none;
-  background: transparent;
-  font-size: 1.7rem;
+
+ul li select {
+  font-size: 1.9rem;
+  height: 3rem;
+  line-height: 3rem;
+  text-align: center;
 }
+
+/* half-width select boxes */
+ul li span select {
+  display: inline-block;
+  position: absolute;
+  top: 1.5rem;
+  right: 3rem;
+  width: calc(50% - 2rem);
+}
+
+/* full-width select boxes */
+ul li p + select {
+  display: block;
+  width: calc(100% - 15rem);
+  margin: -1rem 3rem 1rem 12rem;
+}
+
+/******************************************************************************
+ * Fake select boxes
+ */
+.fake-select {
+  position: relative;
+  display: block;
+  padding: 0;
+  margin-bottom: 1.5rem;
+  height: 3.8rem;
+}
+
+a + .fake-select {
+  margin-top: -1rem;
+}
+
+.fake-select.small {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.fake-select > button {
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.fake-select > select {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3.8rem;
+  border: none;
+  background: red;
+  opacity: 0;
+}
+
+p > .fake-select {
+  margin: 1rem -1.5rem 0.5rem; 
+}
+
+/* */
+section[role="region"] > ul > li > p + .fake-select {
+  padding-top: 0;
+  margin-top: -0.8rem;
+}
+
 
 /******************************************************************************
  * Progress, Meter
@@ -428,9 +523,9 @@ html[dir="rtl"] ul li a[role="button"] {
   right: 3rem;
 }
 
-html[dir="rtl"] ul li > label.pack-checkbox > span,
-html[dir="rtl"] ul li > label.pack-radio > span,
-html[dir="rtl"] ul li > label.pack-switch > input + span {
+html[dir="rtl"] ul li > label.pack-checkbox > span:after,
+html[dir="rtl"] ul li > label.pack-radio > span:after,
+html[dir="rtl"] ul li > label.pack-switch > input ~ span:after {
   left: 9rem; /* XXX we use "right: 3rem" for LTR layouts... */
   right: inherit;
 }
