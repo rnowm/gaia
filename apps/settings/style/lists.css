@@ -19,6 +19,7 @@ ul li {
   align-items: center;
   padding: 1rem 0;
   display: flex;
+  min-height: 6rem;
 }
 
 ul li:last-child {
@@ -49,9 +50,17 @@ ul li > label {
 
 ul li.menu-item > label,
 ul li.menu-item > a {
-  padding: 2rem 1rem 2rem 5.5rem;
+  padding: 1rem 1rem 1rem 5.5rem;
   margin: -1rem -1.5rem;
   width: calc(100% + 3rem);
+}
+
+ul li.menu-item > label{
+  padding: 1.8rem 1rem 1.8rem 5.5rem;
+}
+
+ul li.no-desc > a{
+  padding: 2rem 1rem 2rem 5.5rem;
 }
 
 ul li.text-right > label,
@@ -59,14 +68,6 @@ ul li.text-right > a {
   flex-direction: row;
 }
 
-/*ul li.menu-item > label:only-child:not([for]) > span{
-  display: block;
-} */
-
-/*
-ul li:not([aria-disabled="true"]) > a:active:before,
-ul li:not([aria-disabled="true"]) > label:active:before {
-*/
 ul li[aria-disabled="true"]{
   pointer-events: none;
 }
@@ -86,7 +87,6 @@ ul li > a:active:after{
   background-image: none;
   width: auto;
 }
-
 
 ul li[aria-disabled="true"] > a {
   color: #797e80;
