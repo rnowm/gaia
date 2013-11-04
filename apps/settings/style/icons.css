@@ -4,9 +4,9 @@
  */
 
 .menu-item {
-  padding-left: 5.5rem;
+  /*padding-left: 5.5rem;
   background-repeat: no-repeat;
-  background-position: 1.4rem center;
+  background-position: 1.4rem center;*/
 }
 
 .menu-item-desc {
@@ -16,12 +16,14 @@
 .menu-item::before {
   content: '';
   position: absolute;
-  top: calc((6.2rem - 3.2rem) / 2);
-  left: calc((2.5rem - 2.8rem) / 2);
   width: 3rem;
-  height: 3rem;
   background-image: url(images/icons_sprite.gif);
   background-size: 15rem;
+  left: 0;
+  top: calc((100% - 3rem) / 2);
+  height: 100%;
+  clip: rect(0, 3rem, 3rem, 0);
+  z-index: -1;
 }
 
 li:active:not([aria-disabled="true"]) .menu-item::before,
