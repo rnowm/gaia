@@ -46,6 +46,7 @@ ul li > label {
   margin: -1rem -1.5rem;
   padding: 1rem 1.5rem;
   flex-direction: column;
+  background-color: transparent;
 }
 
 ul li.menu-item > label,
