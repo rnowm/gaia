@@ -360,31 +360,45 @@
           <h2 data-l10n-id="personalization">Personalization</h2>
         </header>
         <ul>
-          <li>
-            <a id="menuItem-sound" class="menu-item" href="#sound" data-l10n-id="sound">Sound</a>
+          <li id="menuItem-sound" class="menu-item">
+            <a href="#sound">
+              <p data-l10n-id="sound">Sound</p>
+            </a>
           </li>
-          <li>
-            <a id="menuItem-display" class="menu-item" href="#display" data-l10n-id="display">Display</a>
+          <li id="menuItem-display" class="menu-item">
+            <a href="#display">
+              <p data-l10n-id="display">Display</p>
+            </a>
           </li>
-          <li>
-            <a id="menuItem-notifications" class="menu-item" href="#notifications" data-l10n-id="notifications">Notifications</a>
+          <li id="menuItem-notifications" class="menu-item">
+            <a href="#notifications">
+              <p data-l10n-id="notifications">Notifications</p>
+            </a>
           </li>
-          <li>
-            <small id="time-desc" class="menu-item-desc"></small>
-            <a id="menuItem-dateAndTime" class="menu-item" href="#dateTime" data-l10n-id="dateAndTime">Date &amp; Time</a>
+          <li id="menuItem-dateAndTime" class="menu-item">
+            <a href="#dateTime">
+              <p data-l10n-id="dateAndTime">Date &amp; Time</p>
+              <small id="time-desc" class="menu-item-desc"></small>
+            </a>
           </li>
-          <li>
-            <small id="language-desc" class="menu-item-desc"></small>
+          <li id="menuItem-languageAndRegion" class="menu-item">
             <!-- The data-l10n-id and title should be changed from language to languageAndRegion in V2. -->
-            <a id="menuItem-languageAndRegion" class="menu-item" href="#languages" data-l10n-id="language">Language</a>
+            <a href="#languages">
+              <p data-l10n-id="language">Language</p>
+              <small id="language-desc" class="menu-item-desc"></small>
+            </a>
           </li>
-          <li>
-            <small id="homescreen-desc" class="menu-item-desc"></small>
-            <a id="menuItem-homescreen" class="menu-item" href="#homescreen" data-l10n-id="homescreen">Homescreen</a>
+          <li id="menuItem-homescreen" class="menu-item">
+            <a href="#homescreen">
+              <p data-l10n-id="homescreen">Homescreen</p>
+              <small id="homescreen-desc" class="menu-item-desc"></small>
+            </a>
           </li>
-          <li>
-            <small id="keyboard-desc" class="menu-item-desc"></small>
-            <a id="menuItem-keyboard" class="menu-item" href="#keyboard" data-l10n-id="keyboards">Keyboards</a>
+          <li id="menuItem-keyboard" class="menu-item">
+            <a href="#keyboard">
+              <p data-l10n-id="keyboards">Keyboards</p>
+              <small id="keyboard-desc" class="menu-item-desc"></small>
+            </a>
           </li>
         </ul>
 
@@ -393,11 +407,15 @@
           <h2 data-l10n-id="accounts">Accounts</h2>
         </header>
         <ul hidden="">
-          <li>
-            <a id="menuItem-persona" class="menu-item" href="#persona" data-l10n-id="persona">Persona</a>
+          <li id="menuItem-persona" class="menu-item">
+            <a href="#persona">
+              <p data-l10n-id="persona">Persona</p>
+            </a>
           </li>
-          <li>
-            <a id="menuItem-mail" class="menu-item" href="#mail" data-l10n-id="mail">Mail</a>
+          <li id="menuItem-mail" class="menu-item">
+            <a href="#mail">
+              <p data-l10n-id="mail">Mail</p>
+            </a>
           </li>
         </ul>
 
@@ -406,20 +424,28 @@
           <h2 data-l10n-id="privacyAndSecurity">Privacy &amp; Security</h2>
         </header>
         <ul>
-          <li>
-            <small id="phoneLock-desc" class="menu-item-desc"></small>
-            <a id="menuItem-phoneLock" class="menu-item" href="#phoneLock" data-l10n-id="phoneLock">Phone Lock</a>
+          <li id="menuItem-phoneLock" class="menu-item">
+            <a href="#phoneLock">
+              <p data-l10n-id="phoneLock">Phone Lock</p>
+              <small id="phoneLock-desc" class="menu-item-desc"></small>
+            </a>
           </li>
-          <li id="simSecurity-settings">
-            <small id="simCardLock-desc" class="menu-item-desc"></small>
-            <a id="menuItem-simSecurity" class="menu-item" href="#simpin" data-l10n-id="simSecurity">SIM Security</a>
+          <li id="simSecurity-settings" class="menu-item menuItem-simSecurity">
+            <a href="#simpin">
+              <p data-l10n-id="simSecurity">SIM Security</p>
+              <small id="simCardLock-desc" class="menu-item-desc"></small>
+            </a>
           </li>
-          <li>
-            <a id="menuItem-appPermissions" class="menu-item" href="#appPermissions" data-l10n-id="appPermissions">App permissions</a>
+          <li id="menuItem-appPermissions" class="menu-item">
+            <a href="#appPermissions">
+              <p data-l10n-id="appPermissions">App permissions</p>
+            </a>
           </li>
-          <li>
-            <small id="doNotTrack-desc" class="menu-item-desc"></small>
-            <a id="menuItem-doNotTrack" class="menu-item" href="#doNotTrack" data-l10n-id="doNotTrack">Do Not Track</a>
+          <li id="menuItem-doNotTrack" class="menu-item">
+            <a href="#doNotTrack">
+              <p data-l10n-id="doNotTrack">Do Not Track</p>
+              <small id="doNotTrack-desc" class="menu-item-desc"></small>
+            </a>
           </li>
         </ul>
         <!-- Main :: Storage -->
@@ -427,21 +453,24 @@
           <h2 data-l10n-id="storage">Storage</h2>
         </header>
         <ul>
-          <li>
+          <li id="menuItem-enableStorage" class="menu-item">
             <label class="pack-switch">
               <input id="ums-switch-root" data-ignore="" type="checkbox">
-              <span></span>
+              <span data-l10n-id="enableUSBStorage">Enable USB storage</span>
+              <small id="ums-desc-root" class="menu-item-desc">Disabled</small>
             </label>
-            <small id="ums-desc-root" class="menu-item-desc">Disabled</small>
-            <a id="menuItem-enableStorage" class="menu-item" data-l10n-id="enableUSBStorage">Enable USB storage</a>
           </li>
-          <li>
-            <small id="application-storage-desc" class="menu-item-desc"></small>
-            <a id="menuItem-applicationStorage" class="menu-item" href="#applicationStorage" data-l10n-id="appStorage">Application Storage</a>
+          <li id="menuItem-applicationStorage" class="menu-item">
+            <a href="#applicationStorage">
+              <p data-l10n-id="appStorage">Application Storage</p>
+              <small id="application-storage-desc" class="menu-item-desc"></small>
+            </a>
           </li>
-          <li id="media-storage-section">
-            <small id="media-storage-desc" class="menu-item-desc"></small>
-            <a id="menuItem-mediaStorage" class="menu-item" href="#mediaStorage" data-l10n-id="mediaStorage">Media Storage</a>
+          <li id="media-storage-section" class="menu-item menuItem-mediaStorage">
+            <a href="#mediaStorage">
+              <p data-l10n-id="mediaStorage">Media Storage</p>
+              <small id="media-storage-desc" class="menu-item-desc"></small>
+            </a>
           </li>
         </ul>
 
@@ -450,21 +479,31 @@
           <h2 data-l10n-id="device">Device</h2>
         </header>
         <ul>
-          <li>
-            <a id="menuItem-deviceInfo" class="menu-item" href="#about" data-l10n-id="deviceInfo">Device Information</a>
+          <li id="menuItem-deviceInfo" class="menu-item">
+            <a href="#about">
+              <p data-l10n-id="deviceInfo">Device Information</p>
+            </a>
           </li>
-          <li>
-            <small id="battery-desc" class="menu-item-desc"></small>
-            <a id="menuItem-battery" class="menu-item" href="#battery" data-l10n-id="battery">Battery</a>
+          <li id="menuItem-battery" class="menu-item">
+            <a href="#battery">
+              <p data-l10n-id="battery">Battery</p>
+              <small id="battery-desc" class="menu-item-desc"></small>
+            </a>
           </li>
-          <li hidden="">
-            <a id="menuItem-accessibility" class="menu-item" href="#accessibility" data-l10n-id="accessibility">Accessibility</a>
+          <li hidden="" id="menuItem-accessibility" class="menu-item">
+            <a href="#accessibility">
+              <p data-l10n-id="accessibility">Accessibility</p>
+            </a>
           </li>
-          <li>
-            <a id="menuItem-improveBrowserOS" class="menu-item" href="#improveBrowserOS" data-l10n-id="improveBrowserOS">Improve Browser OS</a>
+          <li id="menuItem-improveBrowserOS" class="menu-item">
+            <a  href="#improveBrowserOS">
+              <p data-l10n-id="improveBrowserOS">Improve Browser OS</p>
+            </a>
           </li>
-          <li>
-            <a id="menuItem-help" class="menu-item" href="#help" data-l10n-id="help">Help</a>
+          <li id="menuItem-help" class="menu-item">
+            <a href="#help">
+              <p data-l10n-id="help">Help</p>
+            </a>
           </li>
         </ul>
 
@@ -473,9 +512,11 @@
           <h2 data-l10n-id="operatorServices">Operator Services</h2>
         </header>
         <ul id="icc-mainentry">
-          <li>
-            <small id="icc-desc" class="menu-item-desc"></small>
-            <a id="menuItem-icc" class="menu-item" href="#icc">SIM Toolkit</a>
+          <li id="menuItem-icc" class="menu-item">
+            <a  href="#icc">
+              <p>SIM Toolkit</p>
+              <small id="icc-desc" class="menu-item-desc"></small>
+            </a>
           </li>
         </ul>
       </div>

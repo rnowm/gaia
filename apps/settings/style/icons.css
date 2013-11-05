@@ -95,7 +95,7 @@ li:active:not([aria-disabled="true"]) .menu-item::before,
   background-position: -12rem -6rem;
 }
 
-#menuItem-simSecurity::before {
+.menuItem-simSecurity::before {
   background-position: 0 -9rem;
 }
 
@@ -123,7 +123,7 @@ li:active:not([aria-disabled="true"]) .menu-item::before,
   background-position: 0 -12rem;
 }
 
-#menuItem-mediaStorage::before {
+.menuItem-mediaStorage::before {
   background-position: -3rem -12rem;
 }
 
