@@ -176,7 +176,7 @@ ul li > label.pack-switch {
   display: flex;
 }
 
-ul li > label.pack-checkbox > span:after,
+/*ul li > label.pack-checkbox > span:after,*/
 ul li > label.pack-radio > span:after,
 ul li > label.pack-switch > input ~ span:after {
   left: auto;
