@@ -49,6 +49,14 @@ ul li > label {
   background-color: transparent;
 }
 
+ul li > label,
+ul li > label.pack-switch,
+ul li > label.pack-checkbox,
+ul li > a {
+  width: calc(100% + 3rem);
+  padding-left: 3rem;
+}
+
 ul li.menu-item > label,
 ul li.menu-item > a {
   margin: -1rem -1.5rem;
@@ -124,6 +132,10 @@ ul li > * {
 ul li small {
   font-size: 1.4rem;
   color: #505859;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-right: 5rem;
+  max-width: 80%;
   /* click/tap events should be caught by the <a> element below the <small> */
   pointer-events: none;
 }
@@ -141,6 +153,11 @@ ul li > label.pack-radio > small {
 
 ul li > label.pack-switch > small {
    right: 9rem;
+}
+
+label.pack-checkbox input ~ span:after{
+  right: 1rem;
+  left: auto;
 }
 
 /* required for empty elements like Bluetooth */
@@ -552,4 +569,9 @@ html[dir="rtl"] ul li > a,
 html[dir="rtl"] ul li > span {
   padding-left: inherit;
   padding-right: 3rem;
+}
+
+/* WiFi element */
+#wifi-availableNetworks li{
+  
 }

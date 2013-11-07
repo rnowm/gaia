@@ -8,7 +8,7 @@
 
     <div>
       <ul>
-        <li id="wifi-enabled" class="menu-item">
+        <li id="wifi-enabled">
           <label class="pack-switch">
             <input type="checkbox" data-ignore/>
             <span data-l10n-id="wifi">Wi-Fi</span>
@@ -22,9 +22,9 @@
           </label>
         </li>
         <li id="wps-column">
-          <small data-l10n-id="wpsDescription2">Automatic Wi-Fi setup</small>
           <a>
             <p data-l10n-id="wpsMessage">Connect with WPS</p>
+            <small data-l10n-id="wpsDescription2">Automatic Wi-Fi setup</small>
           </a>
         </li>
       </ul>
@@ -34,7 +34,7 @@
       </header>
       <ul id="wifi-availableNetworks" data-state="off">
         <li class="explanation" data-state="off" data-l10n-id="wifi-disabled">
-          Turn Wi-Fi on to view available networks.
+          <p>Turn Wi-Fi on to view available networks.</p>
         </li>
         <li data-state="on">
           <progress></progress><span data-l10n-id="scanning">Searching…</span>
