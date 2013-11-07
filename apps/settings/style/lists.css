@@ -6,7 +6,6 @@
 ul {
   margin: 0;
   padding: 0;
-  overflow: hidden;
   list-style: none;
 }
 
@@ -17,6 +16,13 @@ ul li {
   margin: 0 1.5rem;
   border-bottom: 0.1rem solid #e6e6e3;
   color: #000;
+}
+
+ul header {
+  position: sticky;
+  top: 0;
+  margin: 0;
+  z-index: 5;
 }
 
 ul li:last-child {
