@@ -114,9 +114,8 @@ section[role="region"] > div {
 
 .hint .explanation {
   font-style: normal;
-  position: relative;
-  margin-top: -2rem;
-  padding: 0.5rem 4rem 1.3rem 1.5rem;
+  margin-top: -0.5rem;
+  padding: 0.5rem 6rem 1.3rem 0rem;
   white-space: normal;
 }
 

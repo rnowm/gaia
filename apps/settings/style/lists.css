@@ -176,8 +176,9 @@ ul li button,
 ul li a[role="button"] {
   position: relative;
   top: 1.1rem;
-  width: 100%;
+  width: calc(100% + 1.5rem);
   margin-bottom: 1.2rem;
+  margin-left: -1.5rem;
 }
 
 /* custom styles for boolean inputs (see /shared/style/switches.css) */
