@@ -573,3 +573,70 @@ html[dir="rtl"] ul li > span {
   padding-left: inherit;
   padding-right: 3rem;
 }
+
+
+
+
+select:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    right: 0px;
+    height: 0.2rem;
+    background: url("buttons/images/ui/shadow.png") repeat-x scroll left bottom / auto 100% transparent;
+}
+select:before{
+    background: url("buttons/images/icons/dialog.png") no-repeat scroll 1.6rem 0px / 1rem 9rem transparent;
+    top: 100%;
+    margin-top: -2.4rem;
+}
+select:before {
+    content: "";
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    margin-top: -1.5rem;
+    background: none no-repeat scroll center center / 100% auto transparent;
+    pointer-events: none;
+}
+
+
+select {
+    -moz-box-sizing: border-box;
+    background: none repeat scroll 0% 0% #E7E7E7;
+    border-radius: 0.2rem;
+    border: 0.1rem solid #A6A6A6;
+    color: #333;
+    display: inline-block;
+    font-size: 1.7rem;
+    font-weight: 500;
+    height: 3.8rem;
+    line-height: 3.8rem;
+    margin: 0 0 1rem;
+    outline: medium none;
+    overflow: hidden;
+    padding: 0 3rem 0 1.5rem ;
+    position: relative;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    text-shadow: 0.1rem 0.1rem 0 rgba(255, 255, 255, 0.3);
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 100%;
+}
+
+select { /* Fix for bug 649849 */
+    text-indent: 0.5rem;
+    text-overflow: '';
+    padding: 0.8rem;
+    padding-left: 0;
+}
+
+select:focus{
+    color: transparent;
+}
