@@ -35,6 +35,11 @@ ul li label:not([for]) {
   background: none;
 }
 
+/* Hide elements with attribute hidden and display:flex */
+ul li[hidden] {
+  display: none;
+}
+
 ul li > a,
 /*ul li > span,*/
 ul li > label {
