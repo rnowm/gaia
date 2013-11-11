@@ -268,7 +268,7 @@ navigator.mozL10n.ready(function wifiSettings() {
 
     // icon
     var icon = document.createElement('aside');
-    //icon.classList.add('pack-end');
+    icon.classList.add('pack-end');
     icon.classList.add('wifi-icon');
     var level = Math.min(Math.floor(network.relSignalStrength / 20), 4);
     icon.classList.add('level-' + level);
@@ -289,13 +289,9 @@ navigator.mozL10n.ready(function wifiSettings() {
 
     // create content for list item
     var a = document.createElement('a');
-    a.classList.add('item-menu');
-    a.classList.add('wifi-icon');
-    var level = Math.min(Math.floor(network.relSignalStrength / 20), 4);
-    a.classList.add('level-' + level);
     a.appendChild(ssid);
     a.appendChild(small);
-    // a.appendChild(icon);
+    a.appendChild(icon);
 
     // create list item
     var li = document.createElement('li');
