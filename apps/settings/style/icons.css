@@ -9,26 +9,17 @@
   background-position: 1.4rem center;*/
 }
 
-.menu-item-desc {
-  left: 4rem;
-}
-
 .menu-item::before {
   content: '';
   position: absolute;
   width: 3rem;
   background-image: url(images/icons_sprite.gif);
   background-size: 15rem;
-  left: 0;
+  left: 1.5rem;
   top: calc((100% - 3rem) / 2);
   height: 100%;
   clip: rect(0, 3rem, 3rem, 0);
   z-index: -1;
-}
-
-li:active:not([aria-disabled="true"]) .menu-item::before,
-.menu-item:focus::before {
-  background-image: url(images/icons_sprite_active.gif);
 }
 
 #menuItem-airplaneMode::before {
@@ -43,11 +34,11 @@ li:active:not([aria-disabled="true"]) .menu-item::before,
   background-position: -6rem 0;
 }
 
-.menuItem-callSettings::before {
+#menuItem-callSettings::before {
   background-position: 0 -15rem;
 }
 
-.menuItem-cellularAndData::before {
+#menuItem-cellularAndData::before {
   background-position: -9rem 0;
 }
 
@@ -95,7 +86,7 @@ li:active:not([aria-disabled="true"]) .menu-item::before,
   background-position: -12rem -6rem;
 }
 
-.menuItem-simSecurity::before {
+#menuItem-simSecurity::before {
   background-position: 0 -9rem;
 }
 
@@ -123,7 +114,7 @@ li:active:not([aria-disabled="true"]) .menu-item::before,
   background-position: 0 -12rem;
 }
 
-.menuItem-mediaStorage::before {
+#menuItem-mediaStorage::before {
   background-position: -3rem -12rem;
 }
 
@@ -154,29 +145,32 @@ aside.pack-end {
   margin: 0 0 0 0.5rem;
   text-align: right;
  }
-aside.wifi-icon {
-  background-repeat: no-repeat;
+a.wifi-icon:after {
+  content: '';
+  position: absolute;
+  right: 1.5rem;
+  /*background-repeat: no-repeat;
   background-position: 0 center;
   background-size: 16rem;
   width: 3.2rem;
-  height: 5.6rem;
+  height: 5.6rem;*/
 }
 
 /*
  * States of Wifi signal
  */
-aside.wifi-signal       { background-image: url(images/wifi_disconnected_sprite.png);}
-aside.connected         { background-image: url(images/wifi_connected_sprite.png);}
-aside.secured           { background-image: url(images/wifi_disconnected_locked_sprite.png);}
-aside.secured.connected { background-image: url(images/wifi_connected_locked_sprite.png);}
-aside.level-0 { background-position:     0rem center;}
-aside.level-1 { background-position:  -3.2rem center;}
-aside.level-2 { background-position:  -6.4rem center;}
-aside.level-3 { background-position:  -9.6rem center;}
-aside.level-4 { background-position: -12.8rem center;}
+a.wifi-signal       { background-image: url(images/wifi_disconnected_sprite.png);}
+a.connected         { background-image: url(images/wifi_connected_sprite.png);}
+a.secured           { background-image: url(images/wifi_disconnected_locked_sprite.png);}
+a.secured.connected { background-image: url(images/wifi_connected_locked_sprite.png);}
+a.level-0 { background-position:     0rem center;}
+a.level-1 { background-position:  -3.2rem center;}
+a.level-2 { background-position:  -6.4rem center;}
+a.level-3 { background-position:  -9.6rem center;}
+a.level-4 { background-position: -12.8rem center;}
 
-aside.secured.connecting { background-image: url(images/wifi_connected_locked_sprite.png);}
-aside.connecting {
+a.secured.connecting { background-image: url(images/wifi_connected_locked_sprite.png);}
+a.connecting {
   background-image: url(images/wifi_connected_sprite.png);
   animation-duration: 1s;
   animation-iteration-count: infinite;

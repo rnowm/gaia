@@ -21,9 +21,9 @@
             <small data-l10n-id="networkNotification-expl">Notify me when an open network is available</small>
           </label>
         </li>
-        <li id="wps-column">
-          <a>
-            <p data-l10n-id="wpsMessage">Connect with WPS</p>
+        <li>
+          <a id="wps-column" data-l10n-id="wpsMessage">
+            Connect with WPS
             <small data-l10n-id="wpsDescription2">Automatic Wi-Fi setup</small>
           </a>
         </li>
@@ -34,15 +34,13 @@
       </header>
       <ul id="wifi-availableNetworks" data-state="off">
         <li class="explanation" data-state="off" data-l10n-id="wifi-disabled">
-          <p>Turn Wi-Fi on to view available networks.</p>
+          Turn Wi-Fi on to view available networks.
         </li>
         <li data-state="on">
           <progress></progress><span data-l10n-id="scanning">Searching…</span>
         </li>
         <li data-state="ready">
-          <label>
             <button data-l10n-id="scanNetworks">Search Again</button>
-          </label>
         </li>
       </ul>
 
@@ -51,9 +49,7 @@
       </header>
       <ul>
         <li>
-          <label>
             <button id="manageNetworks" data-l10n-id="manageNetworks">Manage Networks</button>
-          </label>
         </li>
       </ul>
     </div>

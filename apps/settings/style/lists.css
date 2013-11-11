@@ -16,9 +16,10 @@ ul li {
   border-bottom: 0.1rem solid #e6e6e3;
   color: #000;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   padding: 1rem 0;
-  display: flex;
   min-height: 6rem;
 }
 
@@ -35,37 +36,36 @@ ul li label:not([for]) {
 }
 
 ul li > a,
-ul li > span,
+/*ul li > span,*/
 ul li > label {
-  display: flex;
   text-decoration: none;
   outline: 0;
   color: #000;
   -moz-box-sizing: border-box;
   font-size: 1.9rem;
   margin: -1rem -1.5rem;
-  padding: 1rem 1.5rem;
-  flex-direction: column;
-  background-color: transparent;
-}
-
-ul li > label,
-ul li > label.pack-switch,
-ul li > label.pack-checkbox,
-ul li > a {
-  width: calc(100% + 3rem);
-  padding-left: 3rem;
-}
-
-ul li.menu-item > label,
-ul li.menu-item > a {
-  margin: -1rem -1.5rem;
-  width: calc(100% + 3rem);
+  padding: 1rem 1.5rem 1rem 3rem;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: flex-start;
+  width: calc(100% + 3rem);
   min-height: 6rem;
-  padding: 2rem 1rem 1.8rem 5.5rem;
+  position: relative;
 }
+
+ul li > label.menu-item,
+ul li > a.menu-item {
+  padding: 1rem 1.5rem 1rem 5.5rem;
+}
+
+ul li > label.menu-item {
+  /*padding: 1.8rem 1rem 1.8rem 5.5rem;*/
+}
+
+/*ul li.no-desc > a{
+  padding: 2rem 1rem 2rem 5.5rem;
+}*/
 
 ul li.text-right > label,
 ul li.text-right > a {
@@ -87,8 +87,6 @@ ul li > a:active:after{
   bottom: 0;
   left: -1.5rem;
   z-index: 101;
-  clip: auto;
-  background-image: none;
   width: auto;
 }
 
@@ -121,21 +119,17 @@ ul li > a span {
 }
 
 /* text ellipsis */
-ul li > * {
+/*ul li > * {
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
+}*/
 
 /* sublines */
 ul li small {
   font-size: 1.4rem;
   color: #505859;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  margin-right: 5rem;
-  max-width: 80%;
   /* click/tap events should be caught by the <a> element below the <small> */
   pointer-events: none;
 }
@@ -152,12 +146,7 @@ ul li > label.pack-radio > small {
 }
 
 ul li > label.pack-switch > small {
-   right: 9rem;
-}
-
-label.pack-checkbox input ~ span:after{
-  right: 1rem;
-  left: auto;
+  margin-right: 9rem;
 }
 
 /* required for empty elements like Bluetooth */
@@ -175,10 +164,8 @@ ul li small:not(:empty) + span {
 ul li button,
 ul li a[role="button"] {
   position: relative;
-  top: 1.1rem;
-  width: calc(100% + 1.5rem);
-  margin-bottom: 1.2rem;
-  margin-left: -1.5rem;
+  width: 100%;
+  margin: 0.5rem 0;
 }
 
 /* custom styles for boolean inputs (see /shared/style/switches.css) */
@@ -190,15 +177,21 @@ ul li > label:not([for]),
 ul li > label.pack-checkbox,
 ul li > label.pack-radio,
 ul li > label.pack-switch {
-  height: 100%;
   display: flex;
+  height: 100%;
+  width: calc(100% + 3rem);
 }
 
-/*ul li > label.pack-checkbox > span:after,*/
+ul li > label.pack-switch > span,
+ul li > label.pack-switch > small {
+  margin-right: 7rem;
+}
+
+ul li > label.pack-checkbox > span:after,
 ul li > label.pack-radio > span:after,
 ul li > label.pack-switch > input ~ span:after {
   left: auto;
-  right: 1rem;
+  right: 1.5rem;
 }
 
 ul li > label.pack-checkbox ~ a,
@@ -238,7 +231,7 @@ ul li p {
   line-height: 1.9rem;
   font-weight: 400;
   margin: 0;
-  flex: 1 0 auto;
+  flex: 1 0 0%;
 }
 
 ul li p + label:not([for]) {
@@ -570,9 +563,4 @@ html[dir="rtl"] ul li > a,
 html[dir="rtl"] ul li > span {
   padding-left: inherit;
   padding-right: 3rem;
-}
-
-/* WiFi element */
-#wifi-availableNetworks li{
-  
 }

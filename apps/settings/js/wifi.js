@@ -255,15 +255,26 @@ navigator.mozL10n.ready(function wifiSettings() {
      *   </li>
      */
 
+     /**
+     * A Wi-Fi list item has the following HTML structure:
+     *    <li>
+     *      <a class="item-menu icon-right">
+     *        <p>Nework SSID</p>
+     *        <small>Network Segurity</small>
+     *        <aside class="wifi-icon level-[?] [secured]"></aside>
+     *      </a>
+     *   </li>
+     */
+
     // icon
     var icon = document.createElement('aside');
-    icon.classList.add('pack-end');
+    //icon.classList.add('pack-end');
     icon.classList.add('wifi-icon');
     var level = Math.min(Math.floor(network.relSignalStrength / 20), 4);
     icon.classList.add('level-' + level);
 
     // ssid
-    var ssid = document.createElement('a');
+    var ssid = document.createElement('p');
     ssid.textContent = network.ssid;
 
     // supported authentication methods
@@ -276,11 +287,19 @@ navigator.mozL10n.ready(function wifiSettings() {
       small.textContent = _('securityOpen');
     }
 
+    // create content for list item
+    var a = document.createElement('a');
+    a.classList.add('item-menu');
+    a.classList.add('wifi-icon');
+    var level = Math.min(Math.floor(network.relSignalStrength / 20), 4);
+    a.classList.add('level-' + level);
+    a.appendChild(ssid);
+    a.appendChild(small);
+    // a.appendChild(icon);
+
     // create list item
     var li = document.createElement('li');
-    li.appendChild(icon);
-    li.appendChild(small);
-    li.appendChild(ssid);
+    li.appendChild(a);
 
     // Show connection status
     icon.classList.add('wifi-signal');
@@ -291,7 +310,7 @@ navigator.mozL10n.ready(function wifiSettings() {
     }
 
     // bind connection callback
-    li.onclick = function() {
+    a.onclick = function() {
       callback(network);
     };
     return li;
