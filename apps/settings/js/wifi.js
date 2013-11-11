@@ -306,7 +306,7 @@ navigator.mozL10n.ready(function wifiSettings() {
     }
 
     // bind connection callback
-    a.onclick = function() {
+    li.onclick = function() {
       callback(network);
     };
     return li;
