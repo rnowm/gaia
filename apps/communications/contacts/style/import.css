@@ -20,11 +20,13 @@ form[role="dialog"].no-overlay button {
 }
 
 /* BB lists */
+/*
 .import-list header {
   padding-left: 0;
   position: relative;
   z-index: 2;
 }
+*/
 
 /* Force having always checkboxes */
 #groups-list.import-list label,
@@ -33,6 +35,13 @@ form[role="dialog"].no-overlay button {
   pointer-events: auto;
 }
 
+[data-type="list"].import-list {
+  padding: 0 3rem 0 1.5rem;
+}
+
+[data-type="list"].import-list.active li:hover:after {
+  background: none;
+}
 
 #groups-list.import-list li,
 #search-list li {
@@ -66,6 +75,8 @@ form[role="dialog"].no-overlay button {
   z-index: 1;
   border-bottom: 0.1rem solid #E6E6E6;
   padding: 0.4rem 0;
+  display: block;
+  overflow: hidden; background:red;
 }
 
 p#friends-msg {
@@ -83,7 +94,8 @@ p#friends-msg {
 }
 
 #mainContent {
-  width: calc(100% + 0.8rem);
+/*  width: calc(100% + 0.8rem);*/
+  width: 100%;
   overflow-x: hidden;
   overflow-y: auto;
   -moz-box-sizing: border-box;
@@ -102,12 +114,14 @@ p#friends-msg {
   display: none;
 }
 
+/*
 #groups-list {
   width: calc(100% - 5rem - 0.8rem) !important;
   margin: 0;
   margin-left: 2.5rem;
   padding: 0.5rem 0 0 0 !important;
 }
+*/
 
 #groups-list > li {
   display: block;
