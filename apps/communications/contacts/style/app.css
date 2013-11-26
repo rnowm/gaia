@@ -279,8 +279,20 @@ li a[role="button"].activity > b{
 }
 
 /* BB Lists extending */
+[data-type="list"] {
+  padding: 0 1rem 0 1.5rem;
+}
+
 [data-type="list"] header {
-  margin-left: -1rem;
+  padding: 0 0 0 1.5rem;
+}
+
+[data-type="list"] li {
+  padding-left: 1.5rem;
+}
+
+[data-type="list"].active li:after {
+  right: 0;  
 }
 
 /* JS helper */
@@ -333,15 +345,17 @@ form p + p {
   width: 100%;
   -moz-box-sizing: border-box;
   padding: 1.4rem 2rem;
-  background: #f4f4f4;
+  background: #fff;
   color: #333;
   text-align: left;
 }
 
 /* Removes scroll from the view body inner */
+/*
 .view-noscroll .view-body-inner {
   width: -moz-calc(100% + 0.8rem);
 }
+*/
 
 
 /* LAYOUT */
