@@ -24,6 +24,7 @@
   top: 0;
   bottom: 0;
   border-bottom: 1px solid #FF5F19;
+  z-index: 1;
 }
 
 /*
@@ -36,8 +37,11 @@
 }
 */
 
+.facebook .fixed-title {
+  top: 0;
+  color: #4D77CF;
+}
+
 .facebook .fixed-title:after {
   border-color: #4D77CF;
-  color: #4D77CF;
-  top: 0;
 }

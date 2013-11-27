@@ -5,12 +5,10 @@ section[role="region"] > header:first-child {
 
 
 /* BB lists */
-/*
 .import-list header {
-  border-bottom-color: #4D77CF;
+  border-color: #4D77CF;
   color: #4D77CF;
 }
-*/
 
 #groups-list.import-list label input + span,
 #search-list label input + span {

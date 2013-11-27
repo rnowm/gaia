@@ -176,7 +176,6 @@ li a:active {
   z-index: 1;
   width: auto;
   height: auto;
-  border-top: solid 0.1rem #e7e7e7;
 }
 
 [data-type="list"] li > .pack-checkbox input ~ span:after,

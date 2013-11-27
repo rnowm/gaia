@@ -285,7 +285,7 @@ li a[role="button"].activity > b{
 }
 */
 #view-contacts-list [data-type="list"] {
-  padding: 0 1rem 0 1.5rem;
+  padding: 2.5rem 1rem 0 1.5rem;
 }
 
 [data-type="list"] header {
@@ -305,8 +305,6 @@ li a[role="button"].activity > b{
 [data-type="list"] li aside {
   pointer-events: none;
 }
-
-
 
 /* Selection tag extended from shared/style/buttons.css */
 .view-select-tag .selection-list li button {
@@ -349,7 +347,7 @@ form p + p {
   z-index: 5;
   width: 100%;
   -moz-box-sizing: border-box;
-  padding: 1.4rem 2rem;
+  padding: 1.5rem;
   background: #fff;
   color: #333;
   text-align: left;

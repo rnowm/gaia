@@ -19,15 +19,6 @@ form[role="dialog"].no-overlay button {
   pointer-events: auto;
 }
 
-/* BB lists */
-/*
-.import-list header {
-  padding-left: 0;
-  position: relative;
-  z-index: 2;
-}
-*/
-
 /* Force having always checkboxes */
 #groups-list.import-list label,
 #search-list label {
@@ -39,15 +30,18 @@ form[role="dialog"].no-overlay button {
   padding: 0 3rem 0 1.5rem;
 }
 
+[data-type="list"].import-list.active li:after {
+  right: 0;  
+}
+
 [data-type="list"].import-list.active li:hover:after {
   background: none;
 }
 
 #groups-list.import-list li,
-#search-list li {
+.facebook #search-list[data-type="list"] li {
   padding-left: 4rem;
 }
-
 
 /* End BB */
 
@@ -75,8 +69,6 @@ form[role="dialog"].no-overlay button {
   z-index: 1;
   border-bottom: 0.1rem solid #E6E6E6;
   padding: 0.4rem 0;
-  display: block;
-  overflow: hidden; background:red;
 }
 
 p#friends-msg {
