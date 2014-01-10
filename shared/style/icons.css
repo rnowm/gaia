@@ -1,0 +1,191 @@
+.icon {
+  position: relative;
+}
+
+.icon::before {
+  position: absolute;
+  content: "";
+  width: 3rem;
+  height 3rem;
+  background: url(icons/icons.svg) no-repeat;
+  background-size: auto;
+}
+
+.icon-wifi::before {
+  background-position: 0 0;
+}
+.icon-wifi-permissions::before {
+  background-position: -60px 0;
+}
+.icon-wifi-lock::before {
+  background-position: -120px 0;
+}
+.icon-wifi-4::before {
+  background-position: -180px 0;
+}
+.icon-wifi-3::before {
+  background-position: -240px 0;
+}
+.icon-wifi-2::before {
+  background-position: -300px 0;
+}
+.icon-wifi-1::before {
+  background-position: -360px 0;
+}
+.icon-wallpaper::before {
+  background-position: -420px 0;
+}
+.icon-usb-storage::before {
+  background-position: -480px 0;
+}
+.icon-update-balance::before {
+  background-position: -540px 0;
+}
+.icon-topup::before {
+  background-position: -600px 0;
+}
+.icon-topup-with-code::before {
+  background-position: -660px 0;
+}
+.icon-topup-pay::before {
+  background-position: -720px 0;
+}
+.icon-time::before {
+  background-position: -780px 0;
+}
+.icon-tethering::before {
+  background-position: -840px 0;
+}
+.icon-sound-min::before {
+  background-position: -900px 0;
+}
+.icon-sound-max::before {
+  background-position: -960px 0;
+}
+.icon-simtoolkit::before {
+  background-position: -1020px 0;
+}
+.icon-simcard-lock::before {
+  background-position: -1080px 0;
+}
+.icon-privacy::before {
+  background-position: -1140px 0;
+}
+.icon-phonelock::before {
+  background-position: -1200px 0;
+}
+.icon-persona::before {
+  background-position: -1260px 0;
+}
+.icon-notifications::before {
+  background-position: -1320px 0;
+}
+.icon-nfc::before {
+  background-position: -1380px 0;
+}
+.icon-network::before {
+  background-position: -1440px 0;
+}
+.icon-messages::before {
+  background-position: -1500px 0;
+}
+.icon-media-storage::before {
+  background-position: -1560px 0;
+}
+.icon-languages::before {
+  background-position: -1620px 0;
+}
+.icon-keyboard::before {
+  background-position: -1680px 0;
+}
+.icon-import-sdcard::before {
+  background-position: -1740px 0;
+}
+.icon-import-outlook::before {
+  background-position: 0 -60px;
+}
+.icon-import-gmail::before {
+  background-position: -60px -60px;
+}
+.icon-help::before {
+  background-position: -120px -60px;
+}
+.icon-gps::before {
+  background-position: -180px -60px;
+}
+.icon-gps-permissions::before {
+  background-position: -240px -60px;
+}
+.icon-fmradio-permissions::before {
+  background-position: -300px -60px;
+}
+.icon-feedback::before {
+  background-position: -360px -60px;
+}
+.icon-email::before {
+  background-position: -420px -60px;
+}
+.icon-download::before {
+  background-position: -480px -60px;
+}
+.icon-donottrack::before {
+  background-position: -540px -60px;
+}
+.icon-display::before {
+  background-position: -600px -60px;
+}
+.icon-device-storage-permissions::before {
+  background-position: -660px -60px;
+}
+.icon-device-info::before {
+  background-position: -720px -60px;
+}
+.icon-developer::before {
+  background-position: -780px -60px;
+}
+.icon-contacts-permissions::before {
+  background-position: -840px -60px;
+}
+.icon-changewallpaper::before {
+  background-position: -900px -60px;
+}
+.icon-camera-permissions::before {
+  background-position: -960px -60px;
+}
+.icon-call::before {
+  background-position: -1020px -60px;
+}
+.icon-call-waiting-disabled-shape::before {
+  background-position: -1080px -60px;
+  width: 71px;
+  height: 71px;
+}
+.icon-call-waiting-disabled-icon::before {
+  background-position: -1140px -60px;
+  width: 66px;
+  height: 66px;
+}
+.icon-brightness-lower::before {
+  background-position: -1200px -60px;
+}
+.icon-bluetooth::before {
+  background-position: -1260px -60px;
+}
+.icon-battery::before {
+  background-position: -1320px -60px;
+}
+.icon-apps::before {
+  background-position: -1380px -60px;
+}
+.icon-app-storage::before {
+  background-position: -1440px -60px;
+}
+.icon-app-permissions::before {
+  background-position: -1500px -60px;
+}
+.icon-airplane::before {
+  background-position: -1560px -60px;
+}
+.icon-accessibility::before {
+  background-position: -1620px -60px;
+}
