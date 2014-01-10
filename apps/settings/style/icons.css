@@ -16,7 +16,8 @@
 
 .menu-item::before {
   left: 0;
-  top: 1.5rem;
+  line-height: 6rem;
+  color: #657073;
   height: 100%;
 }
 
