@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Gaia-icons';
-  src: url('icons/Gaia-icons.woff') format('woff');
+  src: url('icons/Gaia-icons.ttf') format('truetype');
 }
 
 .icon {
