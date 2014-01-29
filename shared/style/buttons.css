@@ -25,9 +25,9 @@ button,
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  background: #f4f4f4;
+  background: #e7e7e7;
   border: none;
-  border-radius: 0.8rem / 2rem;
+  border-radius: 2rem;
   font-weight: normal;
   font-size: 1.6rem;
   line-height: 4rem;
@@ -113,9 +113,9 @@ li [role="button"],
 li .button {
   position: relative;
   text-align: left;
-  /* For hacking box-shadows we need overflow:visible; so we lose text-overflows...*/
-  white-space: normal;
-  overflow: visible;
+  border: 0.1rem solid #d7dee4;
+  background: none;
+  border-radius: 0;
 }
 
 /* Press */
@@ -181,18 +181,15 @@ select {
   font-size: 2rem;
   width: auto;
   color: #00aacc;
-  border-radius: 0;
+  border: none;
   background: none;
   font-style: normal;
-  white-space: nowrap;
-  overflow: hidden;
   max-width: 100%;
 }
 
 li button.icon-dialog:before,
 li [role="button"].icon-dialog:before,
-li .button.icon-dialog:before,
-select {
+li .button.icon-dialog:before {
   width: 0;
   height: 0;
   top: 3.2rem;
@@ -205,8 +202,7 @@ select {
 
 li button.icon-dialog:disabled,
 li [role="button"][aria-disabled="true"].icon-dialog,
-li .button[aria-disabled="true"].icon-dialog,
-select {
+li .button[aria-disabled="true"].icon-dialog {
   color: rgba(51,51,51,0.5);
 }
 
@@ -220,6 +216,7 @@ select:before {
 /* ----------------------------------
  * Theme: Dark
  * ---------------------------------- */
+
 .dark li button,
 .dark li [role="button"],
 .dark li .button {
@@ -268,16 +265,6 @@ select:before {
 }
 
 /* ----------------------------------
- * Theme: Organic
- * ---------------------------------- */
-.dark li button,
-.dark li [role="button"],
-.dark li .button {
-  background-color: rgba(51,51,51,0.5);
-  color: #fff;
-}
-
-/* ----------------------------------
  * Buttons inside lists, compact mode
  * ---------------------------------- */
 
@@ -314,9 +301,16 @@ body[role="application"] .button input {
   background: none;
 }
 
+/* select */
+select {
+  height: 4rem;
+  line-height: 4rem;
+  padding: 0 0 1rem;
+  margin: 0 1.5rem;
+  border: none;
+}
+
 /* Hides dropdown arrow until bug #649849 is fixed */
 .button.icon select {
    width: 130%;
 }
-
-select {}
