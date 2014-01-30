@@ -72,7 +72,6 @@ button[disabled],
 [role="button"][aria-disabled="true"],
 .button[aria-disabled="true"] {
   opacity: 0.6;
-  background-color: #f4f4f4;
   color: rgba(51,51,51,0.5);
   pointer-events: none;
 }
@@ -89,7 +88,6 @@ button[disabled].danger,
 .dark button[disabled],
 .dark .button[aria-disabled="true"],
 .dark [role="button"][aria-disabled="true"] {
-  background: #5f5f5f;
   color: #c7c7c7;
   pointer-events: none;
 }
@@ -220,14 +218,7 @@ select:before {
 .dark li button,
 .dark li [role="button"],
 .dark li .button {
-  background-color: rgba(51,51,51,0.5);
-  color: #fff;
-}
-
-.dark li button,
-.dark li [role="button"],
-.dark li .button {
-  background-color: rgba(82,82,82,0.6);
+  border-color: #575757;
   color: #fff;
 }
 
