@@ -108,7 +108,8 @@ button[disabled].danger,
 
 li button,
 li [role="button"],
-li .button {
+li .button,
+select {
   position: relative;
   text-align: left;
   border: 0.1rem solid #d7dee4;
@@ -177,13 +178,15 @@ li button.icon-dialog,
 li [role="button"].icon-dialog,
 li .button.icon-dialog,
 select {
+/*
   font-size: 2rem;
   width: auto;
-  color: #00aacc;
   border: none;
   background: none;
   font-style: normal;
   max-width: 100%;
+*/
+  color: #00aacc;
 }
 
 li button.icon-dialog:before,
@@ -295,11 +298,18 @@ body[role="application"] .button input {
 
 /* select */
 select {
+  width: 100%;
+  -moz-box-sizing: border-box;
+  font-family: sans-serif;
+  font-style: italic;
+  font-size: 1.6rem;
+  color: #00aacc;
+  margin: 0 0 1rem;
+  padding: 1rem  0 0 1.5rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   height: 4rem;
-  line-height: 4rem;
-  padding: 0 0 1rem;
-  margin: 0 1.5rem;
-  border: none;
 }
 
 /* Hides dropdown arrow until bug #649849 is fixed */
