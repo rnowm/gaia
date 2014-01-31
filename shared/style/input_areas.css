@@ -59,6 +59,7 @@ textarea::-moz-placeholder {
   color: #a6a6a6;
   opacity: 1;
   font-style: italic;
+  font-weight: 400;
 }
 
 input:-moz-placeholder,
@@ -152,7 +153,29 @@ fieldset legend {
   overflow: hidden;
   font-size: 2rem;
   color: #00aacc;
+  
+  position: relative;
+  text-align: left;
+  border: 0.1rem solid #d7dee4;
+  background: none;
+  border-radius: 0;
+  margin: 0 0 1.5rem;
+  
+  width: 100%;
+  -moz-box-sizing: border-box;
+  font-family: sans-serif;
+  font-style: italic;
+  font-size: 1.6rem;
+  color: #00aacc;
+  margin: 0 0 1rem;
+  padding: 1rem  0 0 1.5rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 4rem;
+  color: #00aacc;
 }
+
 /*
 fieldset legend.action {
   background: url(input_areas/images/icons/arrow.png) no-repeat 100% 100% / 1.2rem;
@@ -262,8 +285,8 @@ form[role="search"] button[type="submit"] {
   height: 3.7rem;
   padding: 0 1.5rem;
   border: none;
-  color: #000;
-  font-weight: 500;
+  color: #00AACC;
+  font-weight: normal;
   font-size: 1.6rem;
   line-height: 3.7rem;
   border-radius: 0;
@@ -272,6 +295,7 @@ form[role="search"] button[type="submit"] {
   margin: 0;
   position: relative;
   background: none;
+  font-style: italic;
 }
 
 form[role="search"] button[type="submit"]:after {
@@ -282,10 +306,6 @@ form[role="search"] button[type="submit"]:after {
   bottom: 0.7rem;
   width: 0.1rem;
   background: #c7c7c7;
-}
-
-form[role="search"].skin-dark button[type="submit"] {
-  color: #fff;
 }
 
 form[role="search"].skin-dark button[type="submit"]:after {

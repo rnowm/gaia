@@ -178,14 +178,6 @@ li button.icon-dialog,
 li [role="button"].icon-dialog,
 li .button.icon-dialog,
 select {
-/*
-  font-size: 2rem;
-  width: auto;
-  border: none;
-  background: none;
-  font-style: normal;
-  max-width: 100%;
-*/
   color: #00aacc;
 }
 
@@ -224,6 +216,7 @@ select:before {
 .dark li .button {
   border-color: #575757;
   color: #fff;
+  font-weight: normal;
 }
 
 .dark li button.icon-dialog,
