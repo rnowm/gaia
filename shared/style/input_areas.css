@@ -82,7 +82,7 @@ form p textarea + button[type="reset"] {
   position: absolute;
   top: 0;
   right: 0;
-  width: 4rem;
+  width: 4.5rem;
   height: 3.7rem;
   padding: 0;
   border: none;
@@ -227,25 +227,10 @@ form[role="search"].skin-dark {
   background: #333;
 }
 
-form[role="search"].skin-dark p:before {
-  background-image: url(input_areas/images/icons/search-dark.png);
-}
-
 form[role="search"] p {
-  padding: 0 4rem 0 3rem;
+  padding: 0 1.5rem 0 3rem;
   overflow: hidden;
   position: relative;
-}
-
-form[role="search"] p:before {
-  content: "";
-  position: absolute;
-  top: 1rem;
-  right: 1.5rem;
-  height: 1.6rem;
-  width: 1.6rem;
-  background: url(input_areas/images/icons/search.png) no-repeat;
-  background-size: 1.6rem;
 }
 
 form[role="search"] p input,
@@ -259,6 +244,15 @@ form[role="search"] p textarea {
 
 form[role="search"] p textarea {
   padding: 1rem 0 0 0;
+}
+
+form[role="search"] p input::-moz-placeholder {
+  background: url(input_areas/images/icons/search.png) right center no-repeat;
+  background-size: 1.6rem;
+}
+
+form[role="search"].skin-dark p input::-moz-placeholder {
+  background-image: url(input_areas/images/icons/search-dark.png);
 }
 
 form[role="search"] p input:focus {
