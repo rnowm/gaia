@@ -10,6 +10,10 @@ form.search {
   z-index: 5;
 }
 
+#search-container {
+  padding-right: 2.5rem;
+}
+
 #search-view:not(.insearchmode) form.search * {
   pointer-events: none;
 }

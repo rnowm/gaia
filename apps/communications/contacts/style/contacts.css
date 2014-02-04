@@ -163,9 +163,7 @@ section[role="region"] > header:first-child .icon.icon-edit-contact {
 /* Edit contact section */
 
 .view-edit-contact .tail-actions {
-  padding-top: 0.7rem;
-  margin: 1rem 0 2rem;
-  border-top: solid 0.1rem #dbdbdb;
+  margin: 1rem 0;
 }
 
 .view-edit-contact form li > section {
@@ -177,7 +175,7 @@ section[role="region"] > header:first-child .icon.icon-edit-contact {
 }
 
 .view-edit-contact form li {
-  margin-right: 3rem;
+  margin-right: 5rem;
 }
 
 .view-edit-contact form li > section{
@@ -188,17 +186,8 @@ section[role="region"] > header:first-child .icon.icon-edit-contact {
   position: relative;
 }
 
-.view-edit-contact fieldset {
-  border-radius: 0.3rem 0.3rem 0 0;
-}
-
 .view-edit-contact form li section + button {
-  margin-top: -0.6rem;
-  border-radius: 0 0 0.4rem 0.4rem;
-}
-
-.view-edit-contact form li section + button:after {
-  display: none;
+  margin: -0.5rem 0 1rem 0;
 }
 
 #contact-detail-inner h1 {
@@ -210,21 +199,11 @@ section[role="region"] > header:first-child .icon.icon-edit-contact {
 }
 
 .view-edit-contact .fillflow-row-action {
-  width: 4.5rem;
-  height: 4.5rem;
-  margin: -2.25rem 0 0 0;
+  width: 4rem;
 }
 
-.view-edit-contact .fillflow-row-action:after {
-  display: none;
-}
-
-.view-edit-contact .fillflow-row-action:active {
-  background: none;
-}
-
-.view-edit-contact .setbox-item input {
-  border-radius: 0.3rem 0.3rem 0 0;
+#contacts-form-notes {
+  margin: 1rem 0 1.5rem 0;
 }
 
 /* FB info (non-editable) */
@@ -338,6 +317,7 @@ form p textarea + button[type="reset"].hide {
 
 .removed button span.icon-delete {
   background-image: url("/contacts/style/gphx/bitmap/default/forms/undo.png");
+  background-size: 2.2rem;
 }
 
 .with-photo {

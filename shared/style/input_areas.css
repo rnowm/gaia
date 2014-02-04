@@ -27,7 +27,7 @@ textarea {
     url(input_areas/images/ui/input.png) no-repeat bottom right;
   background-color: transparent;
   background-size: 0.1rem 1.2rem;
-  margin-bottom: 1.5rem;
+  margin: 0 0 0.5rem 0;
 }
 
 textarea {
@@ -71,10 +71,6 @@ textarea:-moz-placeholder {
 form p {
   position: relative;
   margin: 0;
-}
-
-form p + p {
-  margin-top: 1rem;
 }
 
 form p input + button[type="reset"],
@@ -133,7 +129,7 @@ form p textarea:focus + button[type="reset"] {
 fieldset {
   position: relative;
   overflow: hidden;
-  margin: 0;
+  margin: 1rem 0;
   padding: 0;
   border: 0;
   font-size: 2rem;
@@ -141,39 +137,33 @@ fieldset {
   background: none;
 }
 
-fieldset + fieldset {
-  margin-top: 1.5rem;
-}
-
 fieldset legend {
-  font-family: sans-serif;
-  padding: 1rem 0 2rem 1.5rem;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  font-size: 2rem;
-  color: #00aacc;
-  
-  position: relative;
-  text-align: left;
   border: 0.1rem solid #d7dee4;
-  background: none;
-  border-radius: 0;
-  margin: 0 0 1.5rem;
-  
   width: 100%;
   -moz-box-sizing: border-box;
   font-family: sans-serif;
   font-style: italic;
   font-size: 1.6rem;
   color: #00aacc;
-  margin: 0 0 1rem;
+  margin: 0 0 0.5rem;
   padding: 1rem  0 0 1.5rem;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   height: 4rem;
   color: #00aacc;
+  
+  background: url(input_areas/images/ui/dialog.svg) no-repeat calc(100% - 1rem) calc(100% - 1rem);
+}
+
+fieldset[disabled] {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+fieldset[disabled] legend {
+  color: rgba(51, 51, 51, 0.5);
+  background-image: url(input_areas/images/ui/dialog_disabled.svg);;
 }
 
 /*
