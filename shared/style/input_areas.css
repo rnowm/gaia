@@ -64,8 +64,21 @@ textarea::-moz-placeholder {
 
 input:-moz-placeholder,
 textarea:-moz-placeholder {
-  color: #858585;
+  color: #a6a6a6;
   opacity: 1;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.skin-dark input[type="text"],
+.skin-dark input[type="password"],
+.skin-dark input[type="email"],
+.skin-dark input[type="tel"],
+.skin-dark input[type="search"],
+.skin-dark input[type="url"],
+.skin-dark input[type="number"],
+.skin-dark textarea  {
+  color: #fff;
 }
 
 form p {
@@ -129,7 +142,7 @@ form p textarea:focus + button[type="reset"] {
 fieldset {
   position: relative;
   overflow: hidden;
-  margin: 1rem 0;
+  margin: 1.5rem 0;
   padding: 0;
   border: 0;
   font-size: 2rem;
@@ -152,7 +165,6 @@ fieldset legend {
   overflow: hidden;
   height: 4rem;
   color: #00aacc;
-  
   background: url(input_areas/images/ui/dialog.svg) no-repeat calc(100% - 1rem) calc(100% - 1rem);
 }
 
@@ -163,48 +175,8 @@ fieldset[disabled] {
 
 fieldset[disabled] legend {
   color: rgba(51, 51, 51, 0.5);
-  background-image: url(input_areas/images/ui/dialog_disabled.svg);;
+  background-image: url(input_areas/images/ui/dialog_disabled.svg);
 }
-
-/*
-fieldset legend.action {
-  background: url(input_areas/images/icons/arrow.png) no-repeat 100% 100% / 1.2rem;
-}
-
-fieldset legend:active {
-  background-color: #008caa;
-  text-shadow: 0.1rem 0.1rem 0 rgba(255,255,255,.3);
-}
-
-fieldset section input[type="text"],
-fieldset section input[type="password"],
-fieldset section input[type="email"],
-fieldset section input[type="tel"],
-fieldset section input[type="search"],
-fieldset section input[type="number"],
-fieldset section textarea {
-  height: 4rem;
-  border: none;
-  border-radius: 0;
-  background: none;
-}
-
-fieldset section {
-  display: block;
-  border-left: 0.1rem solid #ddd;
-  border-radius: 0 0.3rem 0.3rem 0;
-  overflow: hidden;
-  margin-left: 9.5rem;
-}
-
-fieldset section p {
-  margin: 0;
-  border-bottom: 0.1rem solid #ddd;
-}
-
-fieldset section p:last-child {
-  border-bottom: none;
-}*/
 
 /* Tidy (search/submit) */
 form[role="search"] {
@@ -311,12 +283,13 @@ form[role="search"].full button[type="submit"] {
 
 form[role="search"] button.icon:active,
 form[role="search"] button[type="submit"]:active {
-  background: #008caa;
-  text-shadow: 0.1rem 0.1rem 0 rgba(255,255,255,.3);
+  background: #b2f2ff;
+  color: #fff;
 }
 
 form[role="search"] button[type="submit"][disabled] {
   color: #adadad;
+  pointer-events: none;
 }
 
 form button::-moz-focus-inner {

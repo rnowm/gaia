@@ -146,10 +146,6 @@ textarea {
   height: 4.6rem;
 }
 
-input[type="text"]:focus, textarea:focus {
-  border-color: #7a7a7a;
-}
-
 [contenteditable] {
   outline: none;
   word-wrap: break-word;
@@ -222,39 +218,6 @@ li a[role="button"] span {
   font-size: 0;
 }
 
-/* Extending BB list buttons (Activity ones) */
-li button.activity,
-li a[role="button"].activity {
-  background-color: #fff;
-  padding: 0 1rem 0 0;
-}
-
-li button.activity.no-icon,
-li a[role="button"].activity.no-icon {
-  padding-left: 1.5rem;
-}
-
-li button.activity:active,
-li a[role="button"].activity:active {
-  background-color: #008AAA;
-}
-
-/* Icons at left side */
-li button.activity.icon,
-li a[role="button"].activity.icon {
-  padding-left: 3rem;
-}
-
-li button.activity.icon,
-li a[role="button"].activity.icon {
-  text-indent: 1rem;
-}
-
-li button.activity:before,
-li a[role="button"].activity:before {
-  right: 0.5rem;
-}
-
 /* Extending components */
 li button.activity > b em ,
 li a[role="button"].activity > b em{
@@ -266,7 +229,6 @@ li a[role="button"].activity > b em{
   margin-left: 1.5rem;
 }
 
-/* Long strings (email) */
 li button.activity > b ,
 li a[role="button"].activity > b{
   font-weight: normal;
@@ -275,7 +237,7 @@ li a[role="button"].activity > b{
   white-space: nowrap;
   display: block;
   position: absolute;
-  left: 0;
+  left: 1.5rem;
   right: 3rem;
   top: 0;
   bottom: 0;
@@ -354,7 +316,6 @@ li a[role="button"].activity > b{
 .item {
   display: block;
   overflow: hidden;
-  padding-bottom: 0.5rem;
 }
 
 .item-media {
@@ -537,6 +498,7 @@ span[role="button"].icon-arrow.icon-arrow-right {
   float: left;
   display: inline;
   background-size: 3rem;
+  display: none; /* Hide unused button */
 }
 .action-block b {
   display: block;
@@ -603,8 +565,21 @@ span[role="button"].icon-arrow.icon-arrow-right {
 }
 
 .fillflow-media:active {
-  background: #b2f2ff;
   color: #fff;
+}
+
+.fillflow-media:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  width: 8.8rem;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.fillflow-media:active:after {
+  background: rgba(105,230,255,0.5);
 }
 
 .fillflow-media p {
