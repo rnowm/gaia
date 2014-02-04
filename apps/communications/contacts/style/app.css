@@ -566,20 +566,11 @@ span[role="button"].icon-arrow.icon-arrow-right {
 
 .fillflow-media:active {
   color: #fff;
-}
-
-.fillflow-media:after {
-  position: absolute;
-  content: "";
-  left: 0;
-  width: 8.8rem;
-  top: 0;
-  bottom: 0;
-  pointer-events: none;
-}
-
-.fillflow-media:active:after {
   background: rgba(105,230,255,0.5);
+}
+
+.fillflow-media.with-photo:active {
+  background: none;
 }
 
 .fillflow-media p {
