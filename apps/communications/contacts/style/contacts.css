@@ -116,13 +116,6 @@ section[role="region"] > header:first-child .icon.icon-edit-contact {
   min-height: 100%;
 }
 
-.view-contact-profile .view-body-inner .comment-notes {
-  font-weight: 600;
-  font-size: 1.3rem;
-  line-height: 1.3em;
-  white-space: pre-wrap;
-}
-
 #contact-detail h1 {
   font-size: 1.6rem;
   line-height: 1.8em;
@@ -179,16 +172,20 @@ section[role="region"] > header:first-child .icon.icon-edit-contact {
   margin: 0;
 }
 
-.view-edit-contact form li {
-  margin-right: 5rem;
-}
-
 .view-edit-contact form li > section{
   position: relative;
 }
 
 .view-edit-contact form li > section div {
   position: relative;
+}
+
+.view-edit-contact form li fieldset {
+  overflow: visible;
+}
+
+.view-edit-contact form li fieldset legend {
+  width: calc(100% - 5rem);
 }
 
 .view-edit-contact form li section + button {
@@ -205,6 +202,7 @@ section[role="region"] > header:first-child .icon.icon-edit-contact {
 
 .view-edit-contact .fillflow-row-action {
   width: 4rem;
+  height: 4rem;
 }
 
 #contact-form li {
@@ -213,6 +211,10 @@ section[role="region"] > header:first-child .icon.icon-edit-contact {
 
 #contacts-form-notes {
   margin: 1rem 0 1.5rem 0;
+}
+
+#contacts-form-notes .setbox {
+  width: calc(100% - 5rem);
 }
 
 /* FB info (non-editable) */
@@ -304,7 +306,8 @@ form p textarea + button[type="reset"].hide {
 }
 
 #contact-detail p > strong,
-.action-block b {
+.action-block b,
+.comment-notes {
   font-size: 1.6rem;
   font-weight: normal;
   padding: 0 0.5rem 1.5rem;

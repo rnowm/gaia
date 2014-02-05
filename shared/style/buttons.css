@@ -7,7 +7,6 @@
 button::-moz-focus-inner {
   border: none;
   outline: none;
-  /*margin-top: -0.2rem;*/ /* To fix line-height bug (697451) */
 }
 
 button,
@@ -250,36 +249,6 @@ li [role="button"][aria-disabled="true"].icon-dialog:before,
 li .button[aria-disabled="true"].icon-dialog:before,
 select:before {
   border-left: 0.7rem solid #c7c7c7;
-}
-
-/* ----------------------------------
- * Buttons inside lists, compact mode
- * ---------------------------------- */
-
-ul.compact,
-ol.compact {
-  padding: 0 1.5rem 1.5rem 1.5rem;
-}
-
-ul.compact li,
-ol.compact li {
-  padding: 1.5rem 0 0.5rem 0;
-  border-bottom: solid #bdbdbd 0.1rem;
-  display: block;
-  overflow: hidden;
-}
-
-ul.compact li label,
-ol.compact li label {
-  padding: 0 1.5rem 1rem 1.5rem;
-  color: #333;
-  font-weight: normal;
-  font-size: 1.6rem;
-  line-height: 1.8rem;
-  display: block;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
 }
 
 /* Inputs inside of .button */

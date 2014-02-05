@@ -267,12 +267,12 @@ li a[role="button"].activity > b{
   background-color: #fff;
 }
 
-.view-select-tag .selection-list li button:active {
-  background-color: #008AAA;
-}
-
 .view-select-tag .selection-list li button.icon-selected:before {
   background: transparent url(gphx/bitmap/default/lists/tick.png) no-repeat center center / 2rem;
+}
+
+#custom-tag {
+  margin-bottom: 2rem;
 }
 
 /* Body */
@@ -541,7 +541,7 @@ span[role="button"].icon-arrow.icon-arrow-right {
 /* ROW ACTION */
 .fillflow-row-action {
   position: absolute;
-  right: -5rem;
+  right: 0;
   top: 0;
   background: none;
   width: auto;
