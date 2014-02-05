@@ -62,14 +62,6 @@ textarea::-moz-placeholder {
   font-weight: 400;
 }
 
-input:-moz-placeholder,
-textarea:-moz-placeholder {
-  color: #a6a6a6;
-  opacity: 1;
-  font-style: italic;
-  font-weight: 400;
-}
-
 .skin-dark input[type="text"],
 .skin-dark input[type="password"],
 .skin-dark input[type="email"],
@@ -91,8 +83,8 @@ form p textarea + button[type="reset"] {
   position: absolute;
   top: 0;
   right: 0;
-  width: 4.5rem;
-  height: 3.7rem;
+  width: 4rem;
+  height: 4rem;
   padding: 0;
   border: none;
   font-size: 0;
@@ -101,14 +93,8 @@ form p textarea + button[type="reset"] {
   background: url(input_areas/images/icons/clear.png) no-repeat center / 1.7rem;
 }
 
-form[role="search"] p input + button[type="reset"],
-form[role="search"] p textarea + button[type="reset"] {
-  background-color: #f4f4f4;
-}
-
-form.skin-dark p input + button[type="reset"],
-form.skin-dark p textarea + button[type="reset"] {
-  background-color: #333;
+.skin-dark p input + button[type="reset"],
+.skin-dark p textarea + button[type="reset"] {
   background-image: url(input_areas/images/icons/clear-dark.png);
 }
 
@@ -126,10 +112,6 @@ form p textarea + button[type="reset"] {
 
 textarea {
   padding: 1.2rem;
-}
-
-form p input:focus {
-  padding-right: 3rem;
 }
 
 form p input:focus + button[type="reset"],
@@ -159,7 +141,7 @@ fieldset legend {
   font-size: 1.6rem;
   color: #00aacc;
   margin: 0 0 0.5rem;
-  padding: 1rem  0 0 1.5rem;
+  padding: 1rem 1.5rem 0;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -217,8 +199,8 @@ form[role="search"].skin-dark p input::-moz-placeholder {
   background-image: url(input_areas/images/icons/search-dark.png);
 }
 
-form[role="search"] p input:focus {
-  padding: 0 2rem 0 0;
+form[role="search"] p input:focus::-moz-placeholder {
+  background: none;
 }
 
 form[role="search"] p input:invalid, 
@@ -229,10 +211,6 @@ form[role="search"] p textarea:invalid {
 form[role="search"].skin-dark p input,
 form[role="search"].skin-dark p textarea {
   color: #fff;
-}
-
-form[role="search"] p button[type="reset"] {
-  right: 0;
 }
 
 form[role="search"] button[type="submit"] {
@@ -262,6 +240,10 @@ form[role="search"] button[type="submit"]:after {
   bottom: 0.7rem;
   width: 0.1rem;
   background: #c7c7c7;
+}
+
+form[role="search"] p input + button[type="reset"]{
+  height: 3.7rem;
 }
 
 form[role="search"].skin-dark button[type="submit"]:after {
@@ -301,9 +283,12 @@ form button::-moz-focus-inner {
  * Right-to-Left layout
  */
 
-html[dir="rtl"] form p input:valid,
-html[dir="rtl"] form p input:valid:focus {
-  padding: 0 1.5rem 0 3rem;
+html[dir="rtl"] fieldset legend {
+  background: url(input_areas/images/ui/dialog_rtl.svg) no-repeat 1rem calc(100% - 1rem);
+}
+
+html[dir="rtl"] fieldset[disabled] legend {
+  background-image: url(input_areas/images/ui/dialog_disabled_rtl.svg);
 }
 
 html[dir="rtl"] form p input + button[type="reset"],
@@ -312,22 +297,19 @@ html[dir="rtl"] form p textarea + button[type="reset"] {
   left: 0;
 }
 
-html[dir="rtl"] fieldset legend.action:after {
-  margin: 0 0.5rem 0 0;
+html[dir="rtl"] form[role="search"] p {
+  padding: 0 3rem 0 1.5rem;
 }
 
-html[dir="rtl"] fieldset legend {
-  padding: 0 1.5rem 0 0.5rem;
+html[dir="rtl"] form[role="search"] p input::-moz-placeholder {
+  background-position: 0 center;
 }
 
-html[dir="rtl"] form[role="search"] p input {
-  padding: 0;
+html[dir="rtl"] form[role="search"] button[type="submit"] {
+  float: left;
 }
 
-html[dir="rtl"] form[role="search"] p input:focus {
-  padding: 0 0 0 2rem;
-}
-
-html[dir="rtl"] form[role="search"] button[type="submit"] + p > button {
-  left: 0;
+html[dir="rtl"] form[role="search"] button[type="submit"]:after {
+  right: 0;
+  left: auto;
 }
