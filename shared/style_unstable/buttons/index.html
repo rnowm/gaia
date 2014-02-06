@@ -4,14 +4,12 @@
   <meta charset="utf-8">
 
   <title>Buttons</title>
-  <meta name="description" content="You can use button tag or also anchor tag with role button">
-
   <link rel="stylesheet" href="../buttons.css">
 
   <!--
-    - This <style> and <link> is only used for the example preview,
-    - it isn't needed for the real use case.
-    -->
+    This <style>, <script> and <link> is only used for the example code,
+    is no needed for the real case use
+  -->
   <style>
     html, body {
       margin: 0;
@@ -50,8 +48,20 @@
       position: relative;
     }
   </style>
+  <script>
+    window.onload = function(){
+      document.getElementById('dir').checked = false;
+    };
+  </script>
 </head>
 <body role="application">
+  <p dir="ltr">
+    <label>
+      <input id="dir" type="checkbox" checked="false"
+        onchange="document.documentElement.dir = this.checked ? 'rtl' : 'ltr'">
+      RTL mode
+    </label>
+  </p>
   <h2 class="bb-docs">Normal</h2>
   <div class="bb-docs">
     <button>Default</button>
@@ -104,7 +114,7 @@
       </li>
     </ul>
   </div>
-  
+
   <h2 class="bb-docs">Dark button List </h2>
   <div class="bb-docs dark">
     <ul>
@@ -136,7 +146,7 @@
       </li>
     </ul>
   </div>
-  
+
   <h2 class="bb-docs">Select</h2>
   <div class="bb-docs">
     <select>
@@ -144,7 +154,7 @@
       <option>option 2</option>
     </select>
   </div>
-  
+
 </body>
 </html>
 
