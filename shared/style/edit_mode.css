@@ -91,7 +91,7 @@ form[role="dialog"][data-type="edit"] button::-moz-focus-inner {
 }
 
 /* Press state */
-form[role="dialog"][data-type="edit"] header button:active:after,
+form[role="dialog"][data-type="edit"] header  button:active:after,
 form[role="dialog"][data-type="edit"] header button:hover:after,
 form[role="dialog"][data-type="edit"] header menu[type="toolbar"] button:hover,
 form[role="dialog"][data-type="edit"] header menu[type="toolbar"] button:active {
@@ -158,68 +158,53 @@ form[role="dialog"][data-type="edit"] > menu {
 }
 
 form[role="dialog"][data-type="edit"] menu button {
+  font-family: sans-serif;
+  font-style: italic;
   width: 100%;
-  height: 3.8rem;
+  height: 4rem;
   margin: 0 0 1rem;
-  padding: 0 1.5rem;
+  padding: 0 1.2rem;
   -moz-box-sizing: border-box;
   display: inline-block;
   vertical-align: middle;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  background: #fafafa url(edit_mode/images/ui/default.png) repeat-x left bottom/ auto 100%;
-  border: 0.1rem solid #a6a6a6;
-  border-radius: 0.3rem;
+  background: #e7e7e7;
+  border: none;
+  border-radius: 2rem;
+  font-weight: normal;
   font-size: 1.6rem;
-  font-weight: 500;
-  line-height: 3.8rem;
+  line-height: 4rem;
   color: #333;
   text-align: center;
-  text-shadow: 0.1rem 0.1rem 0 rgba(255,255,255,0.3);
+  text-shadow: none;
   text-decoration: none;
   outline: none;
 }
 
-/* Press (default & recommend) */
-form[role="dialog"][data-type="edit"] menu button:active,
-form[role="dialog"][data-type="edit"] menu button:hover,
-form[role="dialog"][data-type="edit"] menu button.recommend:hover,
-form[role="dialog"][data-type="edit"] menu button.recommend:active {
-  border-color: #008aaa;
-  background: #008aaa;
-  color: #333;
-}
-
 /* Recommend */
-form[role="dialog"][data-type="edit"] menu button.recommend{
-  background-image: url(edit_mode/images/ui/recommend.png);
-  background-color: #00caf2;
-  border-color: #008eab;
+form[role="dialog"][data-type="edit"] menu button.recommend {
+  background-color: #00CAF2;
+  color: #fff;
 }
 
 /* Danger */
-form[role="dialog"][data-type="edit"] menu button.danger{
-  background-image: url(edit_mode/images/ui/danger.png);
-  background-color: #b70404;
+form[role="dialog"][data-type="edit"] menu button.danger {
+  background-color: #E51E1E;
   color: #fff;
-  text-shadow: none;
-  border-color: #820000;
 }
 
-/* Danger Press */
-form[role="dialog"][data-type="edit"] menu button.danger:hover,
-form[role="dialog"][data-type="edit"] menu button.danger:active {
-  background-image: url(edit_mode/images/ui/danger-press.png);
-  background-color: #890707;
+/* Pressed */
+form[role="dialog"][data-type="edit"] menu button:active {
+  background: #b2f2ff;
+  color: #fff;
 }
 
 /* Disabled */
 form[role="dialog"][data-type="edit"] > menu > button[disabled] {
-  background: #5f5f5f;
-  color: #4d4d4d;
-  text-shadow: none;
-  border-color: #4d4d4d;
+  opacity: 0.6;
+  color: #C7C7C7;
   pointer-events: none;
 }
 

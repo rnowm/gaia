@@ -202,41 +202,47 @@
 
 [role="dialog"][data-type="time-selector"] menu button {
   width: calc((100% - 1rem) / 2);
-  height: 3.8rem;
+  font-family: sans-serif;
+  font-style: italic;
+  height: 4rem;
   margin: 0 0 1rem;
-  padding: 0 1.5rem;
+  padding: 0 1.2rem;
   -moz-box-sizing: border-box;
   display: inline-block;
   vertical-align: middle;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  background: #fafafa url(time_selector/images/ui/default.png) repeat-x left bottom/ auto 100%;
-  border: 0.1rem solid #a6a6a6;
-  border-radius: 0.3rem;
-  font-weight: 500;
+  background: #e7e7e7;
+  border: none;
+  border-radius: 2rem;
+  font-weight: normal;
   font-size: 1.6rem;
-  line-height: 3.8rem;
+  line-height: 4rem;
   color: #333;
   text-align: center;
-  text-shadow: 0.1rem 0.1rem 0 rgba(255,255,255,0.3);
+  text-shadow: none;
   text-decoration: none;
   outline: none;
 }
 
-/* Press (default & affirmative) */
-[role="dialog"][data-type="time-selector"] menu button:active,
-[role="dialog"][data-type="time-selector"] menu button.affirmative:active {
-  border-color: #008aaa;
-  background: #008aaa;
-  color: #333;
+/* Affirmative */
+form[role="dialog"][data-type="time-selector"] menu button.affirmative {
+  background-color: #00CAF2;
+  color: #fff;
 }
 
-/* affirmative */
-[role="dialog"][data-type="time-selector"] menu button.affirmative {
-  background-image: url(time_selector/images/ui/affirmative.png);
-  background-color: #00caf2;
-  border-color: #008eab;
+/* Pressed */
+form[role="dialog"][data-type="time-selector"] menu button:active {
+  background: #b2f2ff;
+  color: #fff;
+}
+
+/* Disabled */
+form[role="dialog"][data-type="time-selector"] > menu > button[disabled] {
+  opacity: 0.6;
+  color: #C7C7C7;
+  pointer-events: none;
 }
 
 [role="dialog"][data-type="time-selector"] menu button:last-child {

@@ -36,15 +36,6 @@ button,
   outline: none;
 }
 
-/* Press (default & recommend) */
-button:active,
-[role="button"]:active,
-button.recommend:active,
-a.recommend[role="button"]:active {
-  background: #b2f2ff;
-  color: #fff;
-}
-
 /* Recommend */
 button.recommend,
 [role="button"].recommend {
@@ -59,11 +50,13 @@ button.danger,
   color: #fff;
 }
 
-/* Danger Press */
-button.danger:active,
-[role="button"].danger:active,
-.button.danger:active {
-  background-color: #b2f2ff;
+/* Pressed */
+button:active,
+[role="button"]:active,
+button.recommend:active,
+a.recommend[role="button"]:active {
+  background: #b2f2ff;
+  color: #fff;
 }
 
 /* Disabled */
@@ -85,7 +78,6 @@ button[disabled]::-moz-selection,
 button[disabled].danger,
 .button[aria-disabled="true"].danger,
 [role="button"][aria-disabled="true"].danger {
-  background-color: #e51e1e;
   color: #fff;
 }
 
@@ -102,7 +94,6 @@ button[disabled].danger,
 .dark .button[aria-disabled="true"].danger,
 .dark [role="button"][aria-disabled="true"].danger {
   opacity: 0.4;
-  background-color: #e51e1e;
   color: #fff;
 }
 
