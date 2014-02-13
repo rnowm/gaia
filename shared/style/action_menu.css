@@ -5,9 +5,7 @@
 /* Main dialog setup */
 form[role="dialog"][data-type="action"],
 form[role="dialog"][data-type="object"] {
-  background:
-    url(action_menu/images/ui/pattern.png) repeat left top,
-    url(action_menu/images/ui/gradient.png) no-repeat left top / 100% 100%;
+  background: rgba(51,51,51,0.95);
   overflow: hidden;
   position: fixed;
   z-index: 100;
@@ -60,12 +58,11 @@ form[role="dialog"][data-type="action"] > header:after,
 form[role="dialog"][data-type="object"] > header:after {
   content: '';
   position: absolute;
-  background: #222323;
+  background: #616262;
   height: 0.1rem;
   left: 0;
   right: 0;
   bottom: 0;
-  border-top: 0.1rem solid #616262;
 }
 
 form[role="dialog"][data-type="action"] > header h1,
@@ -297,12 +294,11 @@ form[role="dialog"][data-type="object"] > menu > button:last-child:before {
   content: '';
   position: fixed;
   width: 100%;
-  background: url(action_menu/images/ui/pattern.png) repeat scroll left top #2D2D2D;
+  background: #333;
   height: 7rem;
   left: 0;
   bottom: 0;
   z-index: -1;
-  border-top: 0.1rem solid rgba(255, 255, 255, 0.1);
 }
 
 form[role="dialog"][data-type="action"] > menu > button:nth-last-child(2),
