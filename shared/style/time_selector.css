@@ -185,7 +185,6 @@
   white-space: nowrap;
   margin: 0;
   padding: 1.5rem;
-  border-top: solid 0.1rem rgba(255, 255, 255, 0.1);
   background: #2d2d2d url(time_selector/images/ui/pattern.png) repeat left top;
   display: block;
   overflow: hidden;
