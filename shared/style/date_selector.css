@@ -226,26 +226,25 @@
 }
 
 /* Affirmative */
-form[role="dialog"][data-type="date-selector"] menu button.affirmative,
-form[role="dialog"][data-type="date-selector"] menu button.recommend {
+[role="dialog"][data-type="date-selector"] menu button.affirmative {
   background-color: #00caf2;
   color: #fff;
 }
 
 /* Pressed */
-form[role="dialog"][data-type="date-selector"] menu button:active {
+[role="dialog"][data-type="date-selector"] menu button:active {
   background: #b2f2ff;
   color: #fff;
 }
 
 /* Disabled */
-form[role="dialog"][data-type="date-selector"] > menu > button[disabled] {
+[role="dialog"][data-type="date-selector"] > menu > button[disabled] {
   background-color: #565656;
   color: rgba(255,255,255,0.4);
   pointer-events: none;
 }
 
-form[role="dialog"][data-type="date-selector"] > menu > button[disabled].recommend {
+[role="dialog"][data-type="date-selector"] > menu > button[disabled].recommend {
   background-color: #006579;
 }
 
