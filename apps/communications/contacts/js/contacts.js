@@ -8,6 +8,9 @@ var asyncScriptsLoaded;
 // Scale ratio for different devices
 var SCALE_RATIO = window.innerWidth / 320;
 
+// This year indicates that the year can be ignored
+var FLAG_YEAR_IGNORED = 9996;
+
 var Contacts = (function() {
   var navigation = new navigationStack('view-contacts-list');
 
@@ -85,7 +88,7 @@ var Contacts = (function() {
                                     null, params['fromUpdateActivity']);
                 showApp();
               }, function onError() {
-                console.log('Error retrieving contact to be edited');
+                console.error('Error retrieving contact to be edited');
                 contactsForm.render(null, goToForm);
                 showApp();
               });
@@ -170,6 +173,10 @@ var Contacts = (function() {
       'address-type' : [
         {type: 'home', value: _('home')},
         {type: 'work', value: _('work')}
+      ],
+      'date-type': [
+        {type: 'birthday', value: _('birthday')},
+        {type: 'anniversary', value: _('anniversary')}
       ]
     };
   };
@@ -350,10 +357,40 @@ var Contacts = (function() {
     return true;
   };
 
+  function filterTags(type, currentNode, tags) {
+    var element = document.querySelector(
+                          '[data-template]' + '.' + type + '-' + 'template');
+    if (!element || !element.dataset.exclusive) {
+      return tags;
+    }
+
+    // If the type is exclusive the tag options are filtered according to
+    // the existen ones
+    var newOptions = tags.slice(0);
+
+    var sameType = document.querySelectorAll('.' + type + '-template');
+    if (sameType.length > 1) {
+      for (var j = 0; j < sameType.length; j++) {
+        var itemSame = sameType.item(j);
+        var tagNode = itemSame.querySelector('[data-field="type"]');
+        if (tagNode !== currentNode &&
+            !itemSame.classList.contains('removed')) {
+          newOptions = newOptions.filter(function(ele) {
+            return ele.value != tagNode.textContent;
+          });
+        }
+      }
+    }
+
+    return newOptions;
+  }
+
   function showSelectTag() {
     var tagsList = document.getElementById('tags-list');
     var selectedTagType = contactTag.dataset.taglist;
     var options = TAG_OPTIONS[selectedTagType];
+
+    options = filterTags(selectedTagType.split('-')[0], contactTag, options);
 
     if (!customTag) {
       customTag = document.querySelector('#custom-tag');
@@ -664,6 +701,29 @@ var Contacts = (function() {
     contactsList.getAllContacts(onerror);
   };
 
+  function formatDate(date) {
+    var year = date.getFullYear();
+    if (year === FLAG_YEAR_IGNORED) {
+      year = '';
+    }
+    var dateFormat = _('dateFormat') || '%B %e';
+    var f = new navigator.mozL10n.DateTimeFormat();
+    try {
+      var offset = date.getTimezoneOffset() * 60 * 1000;
+      var normalizedDate = new Date(date.getTime() + offset);
+      var dayMonthString = f.localeFormat(normalizedDate, dateFormat);
+      var dateString = _('dateOutput', {
+        dayMonthFormatted: dayMonthString,
+        year: year
+      });
+    } catch (err) {
+      console.error('Error parsing date: ', err);
+      throw err;
+    }
+
+    return dateString;
+  }
+
   var addAsyncScripts = function addAsyncScripts() {
     var lazyLoadFiles = [
       '/contacts/js/utilities/templates.js',
@@ -913,6 +973,8 @@ var Contacts = (function() {
     'close': close,
     'view': loadView,
     'utility': loadUtility,
+    'filterTags': filterTags,
+    'formatDate': formatDate,
     get asyncScriptsLoaded() {
       return asyncScriptsLoaded;
     }

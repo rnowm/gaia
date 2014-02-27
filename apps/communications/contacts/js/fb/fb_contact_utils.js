@@ -141,7 +141,7 @@ fb.getWorksAt = function(fbdata) {
   *
   */
 fb.getBirthDate = function getBirthDate(sbday) {
-  var out = new Date();
+  var out = new Date(0);
 
   var imonth = sbday.indexOf('/');
   var smonth = sbday.substring(0, imonth);
@@ -160,6 +160,15 @@ fb.getBirthDate = function getBirthDate(sbday) {
   if (syear && syear.length > 0) {
     out.setUTCFullYear(parseInt(syear, 10));
   }
+  else {
+    // 9996 is the year that flags a not known year
+    out.setUTFCFullYear(9996);
+  }
+
+  out.setUTCHours(0);
+  out.setUTCMinutes(0);
+  out.setUTCSeconds(0);
+  out.setUTCMilliseconds(0);
 
   return out;
 };
