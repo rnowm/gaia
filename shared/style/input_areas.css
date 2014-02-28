@@ -161,6 +161,7 @@ fieldset section input[type="email"],
 fieldset section input[type="tel"],
 fieldset section input[type="search"],
 fieldset section input[type="number"],
+fieldset section input[type="date"],
 fieldset section textarea {
   height: 4rem;
   border: none;
