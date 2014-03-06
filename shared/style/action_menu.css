@@ -256,7 +256,8 @@ form[role="dialog"][data-type="object"] > menu > button {
   border: none;
   border-radius: 0;
   position: relative;
-  border: 0.1rem solid #858585;
+  border: none;
+  background: #5f5f5f;
   color: #fff;
   font-family: sans-serif;
   font-style: italic;
@@ -271,7 +272,6 @@ form[role="dialog"][data-type="object"] > menu > button:last-child {
   background: #d8d8d8;
   text-align: center;
   border-radius: 2rem;
-  border: none;
 }
 
 form[role="dialog"][data-type="action"] > menu > button:last-child:before,
@@ -301,9 +301,9 @@ form[role="dialog"][data-type="object"] > menu > button:active {
 /* Disabled */
 form[role="dialog"][data-type="action"] > menu > button[disabled],
 form[role="dialog"][data-type="object"] > menu > button[disabled] {
-  background-color: transparent;
-  color: rgba(255, 255, 255, 0.5);
-  opacity: 0.6;
+  background-color: #565656;
+  color: #fff;
+  opacity: 0.5;
   pointer-events: none;
 }
 
