@@ -551,7 +551,6 @@ span[role="button"].icon-arrow.icon-arrow-right {
   position: absolute;
   right: 0;
   top: 0;
-  background: none;
   width: auto;
   height: auto;
 }
@@ -566,10 +565,11 @@ span[role="button"].icon-arrow.icon-arrow-right {
 .fillflow-media {
   margin: 0 1rem 0.5rem 0;
   width: 8.8rem;
-  height: 8.3rem;
+  height: 8.8rem;
   position: relative;
   z-index: 0;
-  border: 0.1rem solid #D7DEE4;
+  border: 0.1rem solid #c7c7c7;
+  background: rgba(255, 255, 255, 0.6);
 }
 
 .fillflow-media:active {

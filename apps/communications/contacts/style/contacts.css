@@ -146,8 +146,9 @@ section[role="region"] > header:first-child .icon.icon-edit-contact {
 }
 
 /* Edit contact section */
-.view-edit-contact .item.first {
-  padding-bottom: 1rem;
+.view-edit-contact .item.first,
+.view-edit-contact form li {
+  border-bottom: 0.1rem solid #dbdbdb;
 }
 
 .view-edit-contact .tail-actions {
@@ -158,6 +159,7 @@ section[role="region"] > header:first-child .icon.icon-edit-contact {
   padding: 0;
   border: none;
 }
+
 .view-edit-contact form li > section.first {
   margin: 0;
 }
@@ -176,10 +178,6 @@ section[role="region"] > header:first-child .icon.icon-edit-contact {
 
 .view-edit-contact form li fieldset legend {
   width: calc(100% - 5rem);
-}
-
-.view-edit-contact form li section + button {
-  margin-top: -0.5rem;
 }
 
 .view-edit-contact .fillflow-row-action {
@@ -337,6 +335,7 @@ form p textarea + button[type="reset"].hide {
   width: 5rem;
   z-index: 10;
   border-radius: 0;
+  background: none;
 }
 
 /* SETTINGS */
@@ -354,7 +353,8 @@ section[role="region"] > header .icon.icon-settings {
 }
 
 #view-settings .view-body-inner,
-#import-settings .view-body-inner {
+#import-settings .view-body-inner,
+#view-contact-form .view-body-inner {
   background: #f4f4f4;
 }
 
