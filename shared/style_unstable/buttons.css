@@ -63,8 +63,8 @@ a.recommend[role="button"]:active {
 button[disabled],
 [role="button"][aria-disabled="true"],
 .button[aria-disabled="true"] {
-  background-color: #e7e7e7;
-  color: #a6a6a6;
+  background-color: rgba(0,0,0,0.05);
+  color: #c7c7c7;
   pointer-events: none;
 }
 
@@ -118,8 +118,8 @@ li .button,
 select {
   position: relative;
   text-align: left;
-  border: 0.1rem solid #a6a6a6;
-  background: #e7e7e7;
+  border: 0.1rem solid #c7c7c7;
+  background: rgba(0,0,0,0.05);
   margin: 0 0 1rem;
   overflow: hidden;
 }
