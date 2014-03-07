@@ -55,7 +55,7 @@ button:active,
 [role="button"]:active,
 button.recommend:active,
 a.recommend[role="button"]:active {
-  background: #b2f2ff;
+  background-color: #b2f2ff;
   color: #fff;
 }
 
@@ -120,7 +120,6 @@ select {
   text-align: left;
   border: 0.1rem solid #a6a6a6;
   background: #e7e7e7;
-  border-radius: 0;
   margin: 0 0 1rem;
   overflow: hidden;
 }
@@ -160,25 +159,33 @@ li .button.icon:before {
   pointer-events: none;
 }
 
-li button.icon-view:before,
-li [role="button"].icon-view:before {
-  width: 0;
-  height: 0;
-  top: 2.8rem;
-  right: 0.9rem;
-  border-top: 0.7rem solid transparent;
-  border-bottom: 0.7rem solid transparent;
-  border-left: 0.7rem solid #00aac5;
+li button.icon-view,
+li [role="button"].icon-view {
+  border-radius: 0;
+  border: 0;
+  background-color: transparent;
 }
 
-li button.icon-view:active:before,
-li [role="button"].icon-view:active:before {
-  border-left: 0.7rem solid #00aac5;
+li button.icon-view:active,
+li [role="button"].icon-view:active {
+  background-color: #b2f2ff;
+}
+
+li button.icon-view:before,
+li [role="button"].icon-view:before {
+  background-image: url(buttons/images/next.png);
+  right: -1rem;
 }
 
 li button.icon-view:disabled:before,
 li [role="button"][aria-disabled="true"].icon-view:before {
   border-left: 0.7rem solid #a9a9a9;
+}
+
+li button.icon-dialog,
+li [role="button"].icon-dialog,
+li .button.icon-dialog {
+  border-radius: 0;
 }
 
 li button.icon-dialog:before,
@@ -214,9 +221,26 @@ li .button[aria-disabled="true"].icon-dialog:before {
   font-weight: normal;
 }
 
+.dark li button:active,
+.dark li [role="button"]:active {
+  background-color: #b2f2ff;
+}
+
+.dark li button.icon-view,
+.dark li [role="button"].icon-view {
+  border-radius: 0;
+  border: 0;
+  background-color: transparent;
+}
+
+.dark li button.icon-view:active,
+.dark li [role="button"].icon-view:active {
+  background-color: #b2f2ff;
+}
+
 .dark li button.icon-view:before,
 .dark li [role="button"].icon-view:before {
-  border-left: 0.7rem solid #00aac5;
+  background-image: url(buttons/images/next.png);
 }
 
 .dark li button.icon-view:disabled:before,

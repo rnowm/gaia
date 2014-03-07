@@ -15,9 +15,8 @@ textarea {
   width: 100%;
   height: 4rem;
   resize: none;
-  padding: 0 1.5rem;
+  padding: 0.3rem 1.5rem 0;
   font-size: 1.6rem;
-  line-height: 4rem;
   border: 0;
   border: 0.1rem solid #c7c7c7;
   border-radius: 0;
@@ -36,13 +35,13 @@ textarea {
 /* fix for required inputs with wrong or empty value e.g. [type=email] */
 input:invalid,
 textarea:invalid {
-  border: 0.2rem solid #820000;
+  border-bottom: 0.2rem solid #820000;
   color: #b90000;
 }
 
 input:focus,
 textarea:focus {
-  border: 0.2rem solid #00caf2;
+  border-bottom: 0.2rem solid #00caf2;
 }
 
 input::-moz-placeholder,
@@ -69,6 +68,16 @@ textarea[disabled] {
   color: #fff;
   background: transparent;
   border-color: #858585;
+}
+
+.skin-dark input:focus,
+.skin-dark textarea:focus  {
+  border-bottom: 0.2rem solid #00caf2;
+}
+
+.skin-dark input:invalid,
+.skin-dark textarea:invalid {
+  border-bottom: 0.2rem solid #820000;
 }
 
 form p {
