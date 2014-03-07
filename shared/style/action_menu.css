@@ -253,7 +253,7 @@ form[role="dialog"][data-type="object"] > menu > button {
   padding: 0 1.2rem;
   margin: 0 1.5rem 1rem 1.5rem;
   background-color: rgba(87, 87, 87, 0.8);  border: none;
-  border-radius: 0;
+  border-radius: 2rem;
   position: relative;
   color: #fff;
   font-family: sans-serif;
@@ -268,7 +268,6 @@ form[role="dialog"][data-type="object"] > menu > button:last-child {
   color: #333;
   background: #d8d8d8;
   text-align: center;
-  border-radius: 2rem;
   border: none;
   margin-bottom: 1.5rem;
 }
@@ -324,15 +323,15 @@ form[role="dialog"][data-type="object"] textarea {
   width: 100%;
   height: 4rem;
   resize: none;
-  padding: 0px 1.5rem;
+  padding: 0.3rem 1.5rem 0;
   font-size: 1.6rem;
   line-height: 4rem;
   border: 0.1rem solid #858585;
-  border-radius: 0px;
+  border-radius: 0;
   box-shadow: none;
   color: #fff;
   background: none;
-  margin: 0px 0px 1rem;
+  margin: 0 0 1rem;
 }
 
 form[role="dialog"][data-type="action"] textarea,
@@ -347,14 +346,15 @@ form[role="dialog"][data-type="action"] input:invalid,
 form[role="dialog"][data-type="action"] textarea:invalid,
 form[role="dialog"][data-type="object"] input:invalid,
 form[role="dialog"][data-type="object"] textarea:invalid {
-  border: 0.2rem solid #820000;
+  border-bottom: 0.2rem solid #820000;
+  color: #b90000;
 }
 
 form[role="dialog"][data-type="action"] input:focus,
 form[role="dialog"][data-type="action"] textarea:focus,
 form[role="dialog"][data-type="object"] input:focus,
 form[role="dialog"][data-type="object"] textarea:focus {
-  border: 0.2rem solid #00CAF2;
+  border-bottom: 0.2rem solid #00CAF2;
 }
 
 form[role="dialog"][data-type="action"] input[disabled],
