@@ -271,10 +271,6 @@ li a[role="button"].activity > b{
 }
 
 /* Selection tag extended from shared/style/buttons.css */
-.view-select-tag .selection-list li button {
-  background-color: #fff;
-}
-
 .view-select-tag .selection-list li button.icon-selected:before {
   background: transparent url(gphx/bitmap/default/lists/tick.png) no-repeat center center / 2rem;
 }
@@ -569,7 +565,7 @@ span[role="button"].icon-arrow.icon-arrow-right {
   position: relative;
   z-index: 0;
   border: 0.1rem solid #c7c7c7;
-  background: rgba(255, 255, 255, 0.6);
+  background: #fff;
 }
 
 .fillflow-media:active {
