@@ -182,12 +182,6 @@ li [role="button"][aria-disabled="true"].icon-view:before {
   border-left: 0.7rem solid #a9a9a9;
 }
 
-li button.icon-dialog,
-li [role="button"].icon-dialog,
-li .button.icon-dialog {
-  border-radius: 0;
-}
-
 li button.icon-dialog:before,
 li [role="button"].icon-dialog:before,
 li .button.icon-dialog:before {
