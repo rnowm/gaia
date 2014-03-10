@@ -148,7 +148,7 @@ fieldset legend {
   overflow: hidden;
   height: 4rem;
   color: #333;
-  border-radius: 2rem;
+  border-radius: 0;
   background: rgba(0,0,0,0.05) url(buttons/images/down.png) no-repeat right +1rem center;
 }
 

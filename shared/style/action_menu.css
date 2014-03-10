@@ -254,7 +254,7 @@ form[role="dialog"][data-type="object"] > menu > button {
   margin: 0 1.5rem 1rem 1.5rem;
   background: rgba(87, 87, 87, 0.8);
   border: none;
-  border-radius: 2rem;
+  border-radius: 0;
   position: relative;
   color: #fff;
   font-family: sans-serif;
@@ -271,6 +271,7 @@ form[role="dialog"][data-type="object"] > menu > button:last-child {
   text-align: center;
   border: none;
   margin-bottom: 1.5rem;
+  border-radius: 2rem;
 }
 
 form[role="dialog"][data-type="action"] > menu > button:last-child:before,
