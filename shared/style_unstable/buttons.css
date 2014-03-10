@@ -118,10 +118,15 @@ li .button,
 select {
   position: relative;
   text-align: left;
-  border: 0.1rem solid #c7c7c7;
-  background: rgba(0,0,0,0.05);
+  border: none;
+  background: none;
+  border-radius: 0;
   margin: 0 0 1rem;
   overflow: hidden;
+}
+
+li .inline + li .inline {
+  border-left: 0.1rem solid #c7c7c7;
 }
 
 /* Press */
@@ -136,6 +141,7 @@ li button:disabled,
 li [role="button"][aria-disabled="true"],
 li .button[aria-disabled="true"] {
   opacity: 0.5;
+  background-color: transparent;
 }
 
 /* Icons */
@@ -159,13 +165,6 @@ li .button.icon:before {
   pointer-events: none;
 }
 
-li button.icon-view,
-li [role="button"].icon-view {
-  border-radius: 0;
-  border: 0;
-  background-color: transparent;
-}
-
 li button.icon-view:active,
 li [role="button"].icon-view:active {
   background-color: #b2f2ff;
@@ -176,19 +175,6 @@ li [role="button"].icon-view:before {
   background-image: url(buttons/images/next.png);
 }
 
-/*
-li button.icon-view:disabled:before,
-li [role="button"][aria-disabled="true"].icon-view:before {
-}
-*/
-
-li button.icon-dialog,
-li [role="button"].icon-dialog,
-li .button.icon-dialog {
-  border-radius: 0;
-  border: 0;
-  background-color: transparent;
-}
 
 li button.icon-dialog:before,
 li [role="button"].icon-dialog:before,
@@ -196,12 +182,6 @@ li .button.icon-dialog:before {
   background-image: url(buttons/images/down.png);
 }
 
-/*
-li button.icon-dialog:disabled:before,
-li [role="button"][aria-disabled="true"].icon-dialog:before,
-li .button[aria-disabled="true"].icon-dialog:before {
-}
-*/
 
 /* ----------------------------------
  * Theme: Dark
@@ -210,7 +190,6 @@ li .button[aria-disabled="true"].icon-dialog:before {
 .dark li button,
 .dark li [role="button"],
 .dark li .button {
-  background-color: rgba(87,87,87,0.8);
   border: none;
   color: #fff;
   font-weight: normal;
@@ -238,35 +217,13 @@ li .button[aria-disabled="true"].icon-dialog:before {
   background-image: url(buttons/images/next.png);
 }
 
-.dark li button.icon-dialog,
-.dark li [role="button"].icon-dialog,
-.dark li .button.icon-dialog {
-  border-radius: 0;
-  border: 0;
-  background-color: transparent;
-}
-
-/*
-.dark li button.icon-view:disabled:before,
-.dark li [role="button"][aria-disabled="true"].icon-view:before,
-.dark li .button[aria-disabled="true"].icon-view:before {
-  border-left: 0.7rem solid rgba(255, 255, 255, 0.4);
-}
-*/
-
 .dark li button:disabled,
 .dark li [role="button"][aria-disabled="true"],
 .dark li .button[aria-disabled="true"] {
   opacity: 0.5;
+  background-color: transparent;
 }
 
-/*
-.dark li button.icon-dialog:disabled:before,
-.dark li [role="button"][aria-disabled="true"].icon-dialog:before,
-.dark li .button[aria-disabled="true"].icon-dialog:before,
-.dark select {
-}
-*/
 
 /* Inputs inside of .button */
 .button input,
