@@ -149,12 +149,16 @@ fieldset legend {
   height: 4rem;
   color: #333;
   border-radius: 0;
-  background: rgba(0,0,0,0.05) url(buttons/images/down.png) no-repeat right +1rem center;
+  background: rgba(0,0,0,0.05) url(input_areas/images/ui/dialog.svg) no-repeat calc(100% - 1rem) calc(100% - 1rem);
 }
 
 fieldset[disabled] {
   opacity: 0.5;
   pointer-events: none;
+}
+
+fieldset[disabled] legend {
+  background-image: url(input_areas/images/ui/dialog_disabled.svg);
 }
 
 /* Tidy (search/submit) */
