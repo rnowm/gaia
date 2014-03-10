@@ -252,7 +252,8 @@ form[role="dialog"][data-type="object"] > menu > button {
   text-align: left;
   padding: 0 1.2rem;
   margin: 0 1.5rem 1rem 1.5rem;
-  background-color: rgba(87, 87, 87, 0.8);  border: none;
+  background: rgba(87, 87, 87, 0.8);
+  border: none;
   border-radius: 2rem;
   position: relative;
   color: #fff;
