@@ -66,7 +66,7 @@ textarea[disabled] {
 .skin-dark input[type="number"],
 .skin-dark textarea  {
   color: #fff;
-  background: transparent;
+  background-color: rgba(87, 87, 87, 0.7);
   border-color: #858585;
 }
 
@@ -135,7 +135,7 @@ fieldset {
 }
 
 fieldset legend {
-  border: 0.1rem solid #c7c7c7;
+  border: none;
   width: 100%;
   -moz-box-sizing: border-box;
   font-family: sans-serif;
@@ -148,7 +148,7 @@ fieldset legend {
   overflow: hidden;
   height: 4rem;
   color: #333;
-  background: rgba(0,0,0,0.05) url(input_areas/images/ui/dialog.svg) no-repeat calc(100% - 1rem) calc(100% - 1rem);
+  background: url(input_areas/images/icons/down.png) no-repeat right center;
 }
 
 fieldset[disabled] {

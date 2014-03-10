@@ -174,33 +174,34 @@ li [role="button"].icon-view:active {
 li button.icon-view:before,
 li [role="button"].icon-view:before {
   background-image: url(buttons/images/next.png);
-  right: -1rem;
 }
 
+/*
 li button.icon-view:disabled:before,
 li [role="button"][aria-disabled="true"].icon-view:before {
-  border-left: 0.7rem solid #a9a9a9;
+}
+*/
+
+li button.icon-dialog,
+li [role="button"].icon-dialog,
+li .button.icon-dialog {
+  border-radius: 0;
+  border: 0;
+  background-color: transparent;
 }
 
 li button.icon-dialog:before,
 li [role="button"].icon-dialog:before,
 li .button.icon-dialog:before {
-  width: 0;
-  height: 0;
-  top: 3.5rem;
-  right: 0.8rem;
-  border-top: 0.7rem solid transparent;
-  border-bottom: 0.7rem solid transparent;
-  border-left: 0.7rem solid #00aac5;
-  transform: rotate(45deg);
-  z-index: 1;
+  background-image: url(buttons/images/down.png);
 }
 
+/*
 li button.icon-dialog:disabled:before,
 li [role="button"][aria-disabled="true"].icon-dialog:before,
 li .button[aria-disabled="true"].icon-dialog:before {
-  border-left: 0.7rem solid #a9a9a9;
 }
+*/
 
 /* ----------------------------------
  * Theme: Dark
@@ -237,25 +238,35 @@ li .button[aria-disabled="true"].icon-dialog:before {
   background-image: url(buttons/images/next.png);
 }
 
+.dark li button.icon-dialog,
+.dark li [role="button"].icon-dialog,
+.dark li .button.icon-dialog {
+  border-radius: 0;
+  border: 0;
+  background-color: transparent;
+}
+
+/*
 .dark li button.icon-view:disabled:before,
 .dark li [role="button"][aria-disabled="true"].icon-view:before,
 .dark li .button[aria-disabled="true"].icon-view:before {
   border-left: 0.7rem solid rgba(255, 255, 255, 0.4);
 }
+*/
 
 .dark li button:disabled,
 .dark li [role="button"][aria-disabled="true"],
 .dark li .button[aria-disabled="true"] {
-  background-color: rgba(87,87,87,0.8);
   opacity: 0.5;
 }
 
+/*
 .dark li button.icon-dialog:disabled:before,
 .dark li [role="button"][aria-disabled="true"].icon-dialog:before,
 .dark li .button[aria-disabled="true"].icon-dialog:before,
 .dark select {
-  border-left: 0.7rem solid rgba(255, 255, 255, 0.4);
 }
+*/
 
 /* Inputs inside of .button */
 .button input,
@@ -278,10 +289,11 @@ select {
   white-space: nowrap;
   overflow: hidden;
   height: 4rem;
+  background-color: transparent;
 }
 
 .dark select {
-  background-color: rgba(87, 87, 87, 0.8);
+  background-color: transparent;
   border: none;
   color: #fff;
 }
