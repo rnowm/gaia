@@ -281,6 +281,7 @@ ul li p + label:not([for]) {
  * Range inputs
  */
 
+/*
 input[type=range] {
   -moz-appearance: none;
   border: none;
@@ -290,7 +291,9 @@ input[type=range] {
 input[type=range]:-moz-focusring {
   outline: none;
 }
+*/
 
+/*
 ul li > label input[type="range"] {
   position: relative;
   top: calc(50% - 1.5rem);
@@ -324,6 +327,7 @@ input[type=range]::-moz-range-thumb {
 input[type=range]:active::-moz-range-thumb {
   border: solid 0.4rem #01c5ed;
 }
+*/
 
 ul li.sound-setting > label input[type="range"] {
   margin: 0 auto;

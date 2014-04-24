@@ -11,6 +11,13 @@ input[type="range"] {
   height: 3.5rem;
   width: 100%;
   margin: 0;
+  background: none;
+  border: none;
+}
+
+/* Avoid collisions with Input areas BB */
+input[type="range"]:focus {
+  box-shadow: none;
 }
 
 [role="slider"] > div {
@@ -19,6 +26,7 @@ input[type="range"] {
   padding: 0;
   position: relative;
   height: 100%;
+  width: 100%;
 }
 
 [role="slider"] progress,
@@ -76,12 +84,13 @@ input[type=range]::-moz-range-progress {
 
 [role="slider"] button,
 input[type="range"]::-moz-range-thumb {
-  width: 2.2rem;
-  height: 2.2rem;
+  box-sizing: border-box;
+  position: relative;
+  width: 2.8rem;
+  height: 2.8rem;
   background:  url(seekbars/images/ui/handler.png) no-repeat center center / 2.8rem auto;
-  border-radius: 3.2rem;
+  border-radius: 50%;
   border: solid 0.1rem transparent;
-  transition: border 0.15s ease;
 }
 
 [role="slider"] button {
@@ -93,10 +102,11 @@ input[type="range"]::-moz-range-thumb {
   left: 0;
   margin: -1.5rem 0 0 -1.6rem;
   padding: 0;
+  transition: border 0.15s ease;
 }
 
 [role="slider"] button:active,
-input[type=range]:active::-moz-range-thumb {
+input[type="range"]::-moz-range-thumb:active {
   border: solid 0.5rem #01c5ed;
 }
 
