@@ -7,7 +7,7 @@
          ThreadListUI, ContactRenderer, UIEvent, Drafts, OptionMenu,
          ActivityPicker, KeyEvent, MockNavigatorSettings, MockContactRenderer,
          Draft, MockStickyHeader, MultiSimActionButton, Promise,
-         MockLazyLoader
+         MockLazyLoader, WaitingScreen
 */
 
 'use strict';
@@ -53,6 +53,7 @@ require('/test/unit/mock_activity_handler.js');
 require('/test/unit/mock_information.js');
 require('/test/unit/mock_contact_renderer.js');
 require('/test/unit/mock_message_manager.js');
+require('/test/unit/mock_waiting_screen.js');
 
 require('/shared/test/unit/mocks/mock_contact_photo_helper.js');
 require('/shared/test/unit/mocks/mock_sticky_header.js');
@@ -87,7 +88,8 @@ var mocksHelperForThreadUI = new MocksHelper([
   'StickyHeader',
   'MultiSimActionButton',
   'Audio',
-  'LazyLoader'
+  'LazyLoader',
+  'WaitingScreen'
 ]);
 
 mocksHelperForThreadUI.init();
@@ -644,6 +646,7 @@ suite('thread_ui.js >', function() {
       test('disabled while resizing oversized image and ' +
         'enabled when resize complete ',
         function(done) {
+        this.sinon.stub(Utils, 'getResizedImgBlob');
 
         ThreadUI.recipients.add({
           number: '999'
@@ -659,6 +662,7 @@ suite('thread_ui.js >', function() {
         Compose.on('input', onInput);
         Compose.append(mockImgAttachment(true));
         assert.isTrue(sendButton.disabled);
+        Utils.getResizedImgBlob.yield(testImageBlob);
       });
     });
   });
@@ -2429,6 +2433,137 @@ suite('thread_ui.js >', function() {
       MessageManager.getMessages.yieldTo('done');
       this.sinon.clock.tick();
       assert.ok(MessageManager.markThreadRead.calledWith(1));
+    });
+  });
+
+  suite('deleting messages and threads', function() {
+    var container;
+
+    var testMessages = [{
+      id: 1,
+      threadId: 8,
+      timestamp: +new Date(Date.now() - 150000)
+    },
+    {
+      id: 2,
+      threadId: 8,
+      timestamp: +new Date(Date.now() - 150000)
+    },
+    {
+      id: 5,
+      threadId: 9,
+      timestamp: +new Date(Date.now() - 150000)
+    },
+    {
+      id: 6,
+      threadId: 10,
+      timestamp: +new Date(Date.now() - 150000)
+    },
+    {
+      id: 7,
+      threadId: 11,
+      timestamp: +new Date(Date.now() - 150000)
+    },
+    {
+      id: 8,
+      threadId: 12,
+      timestamp: +new Date(Date.now() - 150000)
+    }];
+
+    var checkIfMessageIsInDOM = function(id) {
+      return !!container.querySelector('#message-' + id);
+    };
+
+    var doMarkedMessagesDeletion = function(ids) {
+      if (!Array.isArray(ids)) {
+        ids = [ids];
+      }
+
+      var confirmSpy = this.sinon.stub(window, 'confirm').returns(true);
+
+      var message, checkbox;
+      for (var i = 0; i < ids.length; i++) {
+        message = container.querySelector('#message-' + ids[i]);
+        checkbox = message.querySelector('input[type=checkbox]');
+        checkbox.checked = true;
+      }
+
+      ThreadUI.delete();
+
+      sinon.assert.calledWith(
+        confirmSpy, navigator.mozL10n.get('deleteMessages-confirmation'));
+    };
+
+    setup(function() {
+      container =
+        ThreadUI.getMessageContainer(testMessages[0].timestamp, false);
+      for (var i = 0; i < testMessages.length; i++) {
+        ThreadUI.appendMessage(testMessages[i]);
+      }
+      doMarkedMessagesDeletion = doMarkedMessagesDeletion.bind(this);
+    });
+
+    teardown(function() {
+      container.innerHTML = '';
+    });
+
+    test('deleting a single message removes it from the DOM', function() {
+      ThreadUI.deleteUIMessages(testMessages[0].id);
+      assert.isFalse(checkIfMessageIsInDOM(testMessages[0].id));
+    });
+
+    test('messages marked for deletion get deleted', function() {
+      var messagesToDelete = [1, 2];
+      doMarkedMessagesDeletion(messagesToDelete);
+
+      for (var i = 0; i < testMessages.length; i++) {
+        assert.equal(checkIfMessageIsInDOM(testMessages[i].id),
+                     messagesToDelete.indexOf(testMessages[i].id) == -1);
+      }
+    });
+
+    test('deleting marked messages takes user back to view mode', function() {
+      this.sinon.stub(ThreadListUI, 'updateThread').returns(true);
+      ThreadUI.startEdit();
+      doMarkedMessagesDeletion(1);
+      MessageManager.mTriggerOnSuccess();
+      assert.isFalse(ThreadUI.mainWrapper.classList.contains('edit'));
+    });
+
+    test('thread gets updated when a message is deleted', function() {
+      var updateThreadSpy =
+        this.sinon.stub(ThreadListUI, 'updateThread').returns(true);
+      doMarkedMessagesDeletion(1);
+      MessageManager.mTriggerOnSuccess();
+      sinon.assert.calledWith(updateThreadSpy, undefined, { deleted: true });
+    });
+
+    test('waiting screen shown when messages are deleted', function() {
+      this.sinon.spy(WaitingScreen, 'show');
+      doMarkedMessagesDeletion(1);
+      sinon.assert.calledOnce(WaitingScreen.show);
+    });
+
+    test('waiting screen hidden when messages are done deletion', function() {
+      this.sinon.stub(ThreadListUI, 'updateThread').returns(true);
+      this.sinon.spy(WaitingScreen, 'hide');
+      doMarkedMessagesDeletion(1);
+      MessageManager.mTriggerOnSuccess();
+      sinon.assert.calledOnce(WaitingScreen.hide);
+    });
+
+    test('deleting all messages deletes the thread', function() {
+      this.sinon.spy(ThreadListUI, 'removeThread');
+      ThreadUI.deleteUIMessages(testMessages.map((m) => m.id));
+      sinon.assert.calledOnce(ThreadListUI.removeThread);
+      assert.equal(window.location.hash, '#thread-list');
+    });
+
+    test('error still calls callback', function() {
+      var callbackStub = this.sinon.stub();
+      ThreadUI.deleteUIMessages([], callbackStub);
+      MessageManager.mTriggerOnError();
+      sinon.assert.calledOnce(callbackStub);
     });
   });
 
@@ -5230,6 +5365,33 @@ suite('thread_ui.js >', function() {
       Recipients.View.isFocusable = false;
       ThreadUI.onBeforeEnter();
       assert.isTrue(Recipients.View.isFocusable);
+    });
+  });
+
+  suite('Compose mode tests', function() {
+    teardown(function() {
+      window.location.hash = '';
+      Compose.clear();
+    });
+
+    suite('message editor focus', function() {
+      setup(function() {
+        this.sinon.spy(Compose, 'focus');
+      });
+
+      test('focus on container click if in Composer', function() {
+        window.location.hash = '#new';
+        container.click();
+
+        sinon.assert.called(Compose.focus);
+      });
+
+      test('do not focus on container click if not in Composer', function() {
+        window.location.hash = '#thread=1';
+
+        container.click();
+        sinon.assert.notCalled(Compose.focus);
+      });
     });
   });
 });

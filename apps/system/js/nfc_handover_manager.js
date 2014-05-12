@@ -247,10 +247,8 @@ var NfcHandoverManager = {
                               onsuccess: onsuccess, onerror: onerror};
       var nfcPeer = this.nfc.getNFCPeer(session);
       var carrierPowerState = this.bluetooth.enabled ? 1 : 2;
-      var rnd = Math.floor(Math.random() * 0xffff);
       var mac = this.defaultAdapter.address;
-      var hr = NfcManagerUtils.encodeHandoverRequest(mac, carrierPowerState,
-                                                    rnd);
+      var hr = NfcManagerUtils.encodeHandoverRequest(mac, carrierPowerState);
       var req = nfcPeer.sendNDEF(hr);
       req.onsuccess = function() {
         self.debug('sendNDEF(hr) succeeded');
@@ -348,6 +346,7 @@ var NfcHandoverManager = {
 
   handleHandoverRequest: function handleHandoverRequest(ndef, session) {
     this.debug('handleHandoverRequest');
+    this.bluetoothWasEnabled = this.bluetooth.enabled;
     this.doAction({callback: this.doHandoverRequest, args: [ndef, session]});
   },
 
@@ -365,11 +364,11 @@ var NfcHandoverManager = {
 
   transferComplete: function transferComplete(succeeded) {
     this.debug('transferComplete');
+    if (!this.bluetoothWasEnabled) {
+      this.debug('Disabling Bluetooth');
+      this.settings.createLock().set({'bluetooth.enabled': false});
+    }
     if (this.sendFileRequest != null) {
-      if (!this.bluetoothWasEnabled) {
-        this.debug('Disabling Bluetooth');
-        this.settings.createLock().set({'bluetooth.enabled': false});
-      }
       // Completed an outgoing send file request. Call onsuccess/onerror
       if (succeeded) {
         this.sendFileRequest.onsuccess();

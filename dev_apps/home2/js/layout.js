@@ -2,13 +2,19 @@
 
 (function(exports) {
 
-  const maxIconsPerCol = 4;
-
   const maxIconsPerRow = 4;
+
+  // 320 / 5 = 64px | 480 / 5 = 96px | 540 / 5 = 108px | ...
+  const iconScaleFactorMaxIconsPerRow = 5;
 
   const minIconsPerRow = 3;
 
-  const windowHeight = window.innerHeight;
+  // 320 / 3.8 = 84px | 480 / 3.8 = 126px | 540 / 3.8 = 142px | ...
+  const iconScaleFactorMinIconsPerRow = 3.8;
+
+  const distanceBetweenIconsWithMinIconsPerRow = 32;
+
+  const distanceBetweenIconsWithMaxIconsPerRow = 44;
 
   const windowWidth = window.innerWidth;
 
@@ -42,10 +48,12 @@
 
     /**
      * The height of each grid item.
-     * This number changes based on current zoom level.
      */
     get gridItemHeight() {
-      return windowHeight / maxIconsPerCol * this.percent;
+      return this.gridIconSize +
+            (this.perRow === minIconsPerRow ?
+                             distanceBetweenIconsWithMinIconsPerRow :
+                             distanceBetweenIconsWithMaxIconsPerRow);
     },
 
     /**
@@ -54,6 +62,33 @@
      */
     get gridItemWidth() {
       return windowWidth / this.perRow;
+    },
+
+    /**
+     * Returns the maximum size in pixels for an icon image. It is the size when
+     * the grid is displayed with the minimum number of columns plus the scale
+     * applied in dragdrop
+     */
+    get gridMaxIconSize() {
+      return (windowWidth / iconScaleFactorMinIconsPerRow) *
+              app.dragdrop.maxActiveScale;
+    },
+
+    /**
+     * Returns the icon image size depending on grid configuration and screen
+     * characteristics.
+     */
+    get gridIconSize() {
+      var numCols = this.perRow;
+
+      var size = windowWidth / numCols;
+      if (numCols === minIconsPerRow) {
+        size = windowWidth / iconScaleFactorMinIconsPerRow;
+      } else if (numCols === maxIconsPerRow) {
+        size = windowWidth / iconScaleFactorMaxIconsPerRow;
+      }
+
+      return size;
     },
 
     /**

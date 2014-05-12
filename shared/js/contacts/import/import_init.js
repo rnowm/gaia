@@ -30,25 +30,27 @@
 
   var servicesConnectors = {
     'live': function(cb) {
-      LazyLoader.load('/live/js/live_connector.js', function() {
-        cb(LiveConnector);
+      LazyLoader.load('/shared/js/contacts/import/live/live_connector.js',
+        function() {
+          cb(LiveConnector);
       });
     },
     'gmail': function gmailLoader(cb) {
-      LazyLoader.load('/gmail/js/gmail_connector.js', function onLoad() {
-        cb(GmailConnector);
+      LazyLoader.load('/shared/js/contacts/import/gmail/gmail_connector.js',
+        function onLoad() {
+          cb(GmailConnector);
       });
     },
     'facebook': function(cb) {
       var files = [
                    '/shared/js/fb/fb_request.js',
-                   '/contacts/js/fb/fb_data.js',
-                   '/contacts/js/fb/fb_utils.js',
+                   '/shared/js/contacts/import/facebook/fb_data.js',
+                   '/shared/js/contacts/import/facebook/fb_utils.js',
                    '/shared/js/fb/fb_reader_utils.js',
-                   '/contacts/js/fb/fb_contact_utils.js',
-                   '/contacts/js/fb/fb_query.js',
-                   '/contacts/js/fb/fb_contact.js',
-                   '/facebook/js/facebook_connector.js',
+                   '/shared/js/contacts/import/facebook/fb_contact_utils.js',
+                   '/shared/js/contacts/import/facebook/fb_query.js',
+                   '/shared/js/contacts/import/facebook/fb_contact.js',
+                   '/shared/js/contacts/import/facebook/facebook_connector.js',
                    '/facebook/js/fb_sync.js',
                    '/contacts/style/fb/facebook.css'
       ];

@@ -231,6 +231,8 @@
       window.addEventListener('applicationuninstall', this);
       window.addEventListener('hidewindow', this);
       window.addEventListener('showwindow', this);
+      window.addEventListener('hidewindowforscreenreader', this);
+      window.addEventListener('showwindowforscreenreader', this);
       window.addEventListener('overlaystart', this);
       window.addEventListener('homegesture-enabled', this);
       window.addEventListener('homegesture-disabled', this);
@@ -302,6 +304,8 @@
       window.removeEventListener('applicationuninstall', this);
       window.removeEventListener('hidewindow', this);
       window.removeEventListener('showwindow', this);
+      window.removeEventListener('hidewindowforscreenreader', this);
+      window.removeEventListener('showwindowforscreenreader', this);
       window.removeEventListener('overlaystart', this);
       window.removeEventListener('homegesture-enabled', this);
       window.removeEventListener('homegesture-disabled', this);
@@ -427,6 +431,14 @@
             var home = homescreenLauncher.getHomescreen(); // jshint ignore:line
             home && home.setVisible(false);
           }
+          break;
+
+        case 'hidewindowforscreenreader':
+          activeApp.setVisibleForScreenReader(false);
+          break;
+
+        case 'showwindowforscreenreader':
+          activeApp.setVisibleForScreenReader(true);
           break;
 
         case 'showwindow':
@@ -594,10 +606,18 @@
     },
 
     linkWindowActivity: function awm_linkWindowActivity(config) {
-      // Caller should be either the current active inline activity window,
-      // or the active app.
-      var caller = this._activeApp.getTopMostWindow();
+      var caller;
       var callee = this.getApp(config.origin);
+      var origin = window.location.origin;
+
+      // if caller is system app, we would change the caller to homescreen
+      // so that we won't go back to the wrong place
+      if (config.parentApp && config.parentApp.match(origin)) {
+        caller = homescreenLauncher.getHomescreen(true);
+      } else {
+        caller = this._activeApp.getTopMostWindow();
+      }
+
       callee.callerWindow = caller;
       caller.calleeWindow = callee;
     },
