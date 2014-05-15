@@ -1,5 +1,5 @@
 {
-  "name": "Vertical",
+  "name": "Vertical Homescreen",
   "description": "A vertical homescreen for FirefoxOS.",
   "launch_path": "/index.html",
   "type": "certified",
@@ -28,6 +28,12 @@
     "bookmarks_store": {
       "readonly": true,
       "description": "Display bookmarks"
+    }
+  },
+  "entry_points": {
+    "settings": {
+      "launch_path": "/settings.html",
+      "name": "Settings"
     }
   }
 }

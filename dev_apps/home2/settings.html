@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+  <meta charset="utf-8">
+  <title>Homescreen Settings</title>
+
+  <link rel="stylesheet" type="text/css" href="shared/style/headers.css"/>
+  
+  <link rel="stylesheet" type="text/css" href="style/css/settings.css"/>
+  
+  <link rel="resource" type="application/l10n" href="locales/locales.ini"/>
+  
+  <script defer src="shared/js/l10n.js"></script>
+  <script defer src="js/settings.js"></script>
+</head>
+<body class="skin-organic">
+  <section role="region">
+    <header>
+      <menu type="toolbar">
+        <a id="done" href="#" role="menuitem" data-l10n-id="done">Done</a>
+      </menu>
+      <h1 data-l10n-id="homescreen">Homescreen</h1>
+    </header>
+    <section>
+      <p>
+        <a data-l10n-id="grid-layout">Grid Layout</a>
+        <span class="button icon icon-dialog">
+          <select name="grid.layout.cols">
+            <option value="3" data-l10n-id="three-columns">Three Columns</option>
+            <option value="4" data-l10n-id="four-columns">Four Columns</option>
+          </select>
+        </span>
+      </p>
+      <p>
+        Pinch to zoom on the homescreen to change between the three and four column layout.
+      </p>
+    </section>
+  </section>
+</body>
+</html>

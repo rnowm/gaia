@@ -20,10 +20,15 @@ var Homescreen = {
     this._detailDescription =
       document.querySelector('#homescreen-details > div > p');
 
-    this._detailButton =
-      document.querySelector('#homescreen-details > div > button');
+    this._detailButton = document.querySelector('#change-homescreen');
     this._detailButton.addEventListener('click',
                                         this.handleChangeHomescreen.bind(this));
+
+    this._personalizationHomescreen = 
+                          document.querySelector('#personalization-homescreen');
+    this._settingsButton = document.querySelector('#settings-homescreen');
+    this._settingsButton.addEventListener('click',
+                                      this.handleSettingsHomescreen.bind(this));
 
     this.renderHomescreens();
   },
@@ -36,11 +41,19 @@ var Homescreen = {
       new ManifestHelper(app.manifest || app.updateManifest);
     this._detailTitle.textContent = manifest.name;
     this._detailDescription.textContent = manifest.description;
+    var entryPoints = app.manifest.entry_points;
+    this._personalizationHomescreen.hidden = !entryPoints ||
+                                             !'settings' in entryPoints;
   },
 
   handleChangeHomescreen: function handleChangeHomescreen(evt) {
     var index = this._detailButton.dataset.appIndex;
     this.setHomescreen(this._apps[index].manifestURL);
+  },
+
+  handleSettingsHomescreen: function handleChangeHomescreen(evt) {
+    var index = this._detailButton.dataset.appIndex;
+    this._apps[index].launch('settings');
   },
 
   setHomescreen: function setHomescreen(homescreenManifestUrl) {
