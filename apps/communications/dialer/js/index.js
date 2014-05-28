@@ -24,9 +24,7 @@ window.addEventListener('load', function dialerSetup() {
                        '/shared/js/fb/fb_reader_utils.js',
                        '/shared/style/confirm.css',
                        '/shared/js/confirm.js',
-                       '/dialer/js/newsletter_manager.js',
-                       '/shared/style/edit_mode.css',
-                       '/shared/style/headers.css']);
+                       '/dialer/js/newsletter_manager.js']);
       lazyPanelsElements.forEach(navigator.mozL10n.translate);
     });
   });

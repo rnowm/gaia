@@ -18,6 +18,7 @@ gaia-buttons {
   padding: 0 1.5rem 0 0;
   border-top: 0.1rem solid #e7e7e7;
   background-color: #fff;
+  pointer-events: auto;
 }
 
 button::-moz-focus-inner {

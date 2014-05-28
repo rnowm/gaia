@@ -1,20 +1,13 @@
-/* Overriding BB styles for headers */
-section[role="region"] > header:first-child .icon {
-  pointer-events: auto;
+/* Edit mode */
+form[role="dialog"][data-type="edit"] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
 }
 
-/* Overriding BB styles for edit mode */
-form[role="dialog"][data-type="edit"] header .icon {
-  pointer-events: auto;
-}
-
-form[role="dialog"][data-type="edit"] header {
-  transform: translateY(-110%);
-}
-
-form[role="dialog"][data-type="edit"] > menu {
-  transform: translateY(110%);
-}
 
 #call-log-container[data-type="list"] section {
   background: #fff;

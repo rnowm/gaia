@@ -65,6 +65,7 @@ var CallLog = {
         'deselect-all-threads',
         'delete-button',
         'edit-mode-header',
+        'edit-mode-footer',
         'header-edit-mode-text',
         'missed-filter',
         'select-all-threads',
@@ -607,6 +608,8 @@ var CallLog = {
       event.stopPropagation();
       return;
     }
+    this.editModeHeader.removeAttribute('hidden');
+    this.editModeFooter.removeAttribute('hidden');
     this.headerEditModeText.textContent = this._('edit');
     this.deleteButton.setAttribute('disabled', 'disabled');
     this.selectAllThreads.removeAttribute('disabled');
@@ -617,6 +620,8 @@ var CallLog = {
 
   hideEditMode: function cl_hideEditMode() {
     document.body.classList.remove('recents-edit');
+    this.editModeHeader.setAttribute('hidden', '');
+    this.editModeFooter.setAttribute('hidden', '');
     var cont = this.callLogContainer;
     var inputs = cont.querySelectorAll('input[type="checkbox"]');
     for (var i = 0, l = inputs.length; i < l; i++) {
