@@ -1,5 +1,18 @@
 /* Structure for toolbar*/
 
+gaia-tabs > a {
+  background: no-repeat center 0 / 3rem auto;
+}
+
+/* this rule should be added in the WC */
+gaia-tabs .icon {
+  font-size: 0;
+}
+
+gaia-tabs > a[aria-selected="true"] {
+  background-position: center -4.5rem;
+}
+
 .icon-recents {
   background-image: url("images/recents.png");
 }

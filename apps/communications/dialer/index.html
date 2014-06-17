@@ -21,8 +21,11 @@
     <link rel="stylesheet" type="text/css" href="/dialer/style/suggestion.css">
     <link rel="stylesheet" type="text/css" href="/shared/style/dialer/overlay.css">
 
-    <link rel="stylesheet" type="text/css" href="/shared/style/tabs.css">
     <link rel="stylesheet" type="text/css" href="/shared/style/sim_picker.css">
+
+    <!-- Web components -->
+    <script defer src="/shared/js/component_utils.js"></script>
+    <script defer src="/shared/elements/gaia_tabs/script.js"></script>
 
     <!-- JS -->
     <script defer src="/shared/js/lazy_loader.js"></script>
@@ -89,7 +92,6 @@
   <body role="application" class="skin-comms">
     <section id="views" role="tablist" class="bb-tablist">
       <li role="presentation" class="view hidden" id="call-log-view">
-        <a id="option-recents" role="tab" aria-controls="recents-panel" href="#call-log-view" class="icon icon-recents" data-l10n-id="recents" aria-selected="false"></a>
         <div id="recents-panel" role="tabpanel" class="bb-tabpanel" aria-labelledby="option-recents">
           <section role="region">
             <header class="view-header regular-header">
@@ -130,12 +132,10 @@
         </form>
       </li>
       <li role="presentation" class="view" id="contacts-view">
-        <a id="option-contacts" role="tab" aria-controls="iframe-contacts-container" href="#contacts-view" class="icon icon-contacts" data-l10n-id="contacts" aria-selected="false"></a>
         <div id="iframe-contacts-container" role="tabpanel" class="bb-tabpanel" aria-labelledby="option-contacts">
         </div>
       </li>
       <li role="presentation" id="keyboard-view">
-        <a id="option-keypad" role="tab" aria-controls="keypad-panel" href="#keyboard-view" class="icon icon-keypad" data-l10n-id="keypad" aria-selected="true"></a>
         <div id="keypad-panel" role="tabpanel" class="bb-tabpanel" aria-labelledby="option-keypad">
           <div id="phone-number-view-container">
             <div class="phone-number-view-wrapper-input">
@@ -218,6 +218,12 @@
         </div>
       </li>
     </section>
+
+    <gaia-tabs selected="0">
+      <a id="option-recents" class="icon icon-recents" href="#call-log-view" data-l10n-id="recents"></a>
+      <a id="option-contacts" class="icon icon-contacts" href="#call-log-view" data-l10n-id="contacts"></a>
+      <a id="option-keypad" class="icon icon-keypad" href="#call-log-view" data-l10n-id="keypad"></a>
+    </gaia-tabs>
 
     <form is="edit-mode" id="edit-mode" role="dialog" data-l10n-id="callLogEditDialog" data-type="edit" hidden></form>
 
